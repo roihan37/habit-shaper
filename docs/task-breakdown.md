@@ -401,14 +401,14 @@ feat(database): add initial migration
 
 ### Test Cases
 
-- [ ] Duplicate email rejected
-- [ ] Duplicate habit record for same habit/date rejected
-- [ ] Habit requires valid user
-- [ ] HabitRecord requires valid habit
-- [ ] Goal requires valid user
-- [ ] Goal requires valid habit
-- [ ] Deleting habit removes dependent records
-- [ ] Deleting user removes owned data
+- [x] Duplicate email rejected
+- [x] Duplicate habit record for same habit/date rejected
+- [x] Habit requires valid user
+- [x] HabitRecord requires valid habit
+- [x] Goal requires valid user
+- [x] Goal requires valid habit
+- [x] Deleting habit removes dependent records
+- [x] Deleting user removes owned data
 
 ### Suggested Commit
 
