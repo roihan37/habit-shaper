@@ -14,6 +14,7 @@ export type Habit = {
 }
 
 export const habitsQueryKey = ['habits'] as const
+export const habitQueryKey = (habitId: string) => ['habits', habitId] as const
 
 export function useHabits() {
   return useQuery({

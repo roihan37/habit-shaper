@@ -6,6 +6,7 @@ import { Button } from '../components/ui/button'
 import { Card, CardContent } from '../components/ui/card'
 import { Skeleton } from '../components/ui/skeleton'
 import { CreateHabitDialog } from '../habits/create-habit-dialog'
+import { HabitActions } from '../habits/habit-actions'
 import { useHabits, type Habit, type HabitType } from '../habits/use-habits'
 
 const sectionConfig = {
@@ -41,13 +42,13 @@ function HabitCard({ habit }: { habit: Habit }) {
   const config = sectionConfig[habit.type]
 
   return (
-    <Link
-      className="group block rounded-xl outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
-      to={`/habits/${habit.id}`}
-      aria-label={`View ${habit.name}`}
-    >
-      <Card className="h-full transition-colors group-hover:border-primary/30 group-hover:bg-muted/40">
-        <CardContent className="flex h-full items-start justify-between gap-4 p-5">
+    <Card className="group h-full transition-colors hover:border-primary/30 hover:bg-muted/40">
+      <CardContent className="flex h-full items-start gap-2 p-5">
+        <Link
+          className="flex min-w-0 flex-1 items-start justify-between gap-4 rounded-md outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+          to={`/habits/${habit.id}`}
+          aria-label={`View ${habit.name}`}
+        >
           <div className="min-w-0">
             <Badge
               variant="outline"
@@ -65,12 +66,13 @@ function HabitCard({ habit }: { habit: Habit }) {
             )}
           </div>
           <ArrowUpRight
-            className="mt-0.5 size-4 shrink-0 text-muted-foreground transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-primary"
+            className="mt-3 size-4 shrink-0 text-muted-foreground transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-primary"
             aria-hidden="true"
           />
-        </CardContent>
-      </Card>
-    </Link>
+        </Link>
+        <HabitActions habit={habit} />
+      </CardContent>
+    </Card>
   )
 }
 
