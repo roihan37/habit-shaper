@@ -822,11 +822,11 @@ feat(habits): implement clean streak calculation
 
 ### Checklist
 
-- [ ] Week starts Monday
-- [ ] Week ends Sunday
-- [ ] Resolve boundaries using `APP_TIMEZONE`
-- [ ] Convert habit `createdAt` to `APP_TIMEZONE` before extracting its creation date
-- [ ] Avoid browser/server timezone dependency
+- [x] Week starts Monday
+- [x] Week ends Sunday
+- [x] Resolve boundaries using `APP_TIMEZONE`
+- [x] Convert habit `createdAt` to `APP_TIMEZONE` before extracting its creation date
+- [x] Avoid browser/server timezone dependency
 
 ### Suggested Commit
 

@@ -32,6 +32,13 @@ export function formatCalendarDate(date: Date) {
   return date.toISOString().slice(0, 10)
 }
 
+export function formatCalendarDateInTimeZone(
+  timeZone: string,
+  instant: Date,
+) {
+  return formatCalendarDate(getCalendarDateInTimeZone(timeZone, instant))
+}
+
 export function isValidCalendarDate(value: string) {
   if (!/^\d{4}-\d{2}-\d{2}$/.test(value)) return false
 
@@ -45,4 +52,17 @@ export function parseCalendarDate(value: string) {
 
   const [year, month, day] = value.split("-").map(Number)
   return new Date(Date.UTC(year, month - 1, day))
+}
+
+export function getWeekBounds(calendarDate: string) {
+  const date = parseCalendarDate(calendarDate)
+  const daysSinceMonday = (date.getUTCDay() + 6) % 7
+
+  date.setUTCDate(date.getUTCDate() - daysSinceMonday)
+  const start = formatCalendarDate(date)
+
+  date.setUTCDate(date.getUTCDate() + 6)
+  const end = formatCalendarDate(date)
+
+  return { start, end }
 }
