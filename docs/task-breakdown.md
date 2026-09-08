@@ -773,13 +773,13 @@ dates before habit creation are excluded
 
 ### Tests
 
-- [ ] Single success = 1
-- [ ] Consecutive success = N
-- [ ] Failure resets
-- [ ] Missing past date breaks streak
-- [ ] Today missing does not immediately break previous streak
-- [ ] Historical correction recalculates streak
-- [ ] Dates before habit creation do not break the streak
+- [x] Single success = 1
+- [x] Consecutive success = N
+- [x] Failure resets
+- [x] Missing past date breaks streak
+- [x] Today missing does not immediately break previous streak
+- [x] Historical correction recalculates streak
+- [x] Dates before habit creation do not break the streak
 
 ### Suggested Commit
 
