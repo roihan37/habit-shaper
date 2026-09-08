@@ -1052,9 +1052,9 @@ feat(frontend): build login flow
 
 ### Checklist
 
-- [ ] Logout action
-- [ ] Clear cached authenticated state
-- [ ] Redirect to login
+- [x] Logout action
+- [x] Clear cached authenticated state
+- [x] Redirect to login
 
 ### Suggested Commit
 
