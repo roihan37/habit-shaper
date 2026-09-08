@@ -1287,12 +1287,12 @@ feat(frontend): build habit dashboard
 
 ### Checklist
 
-- [ ] No endpoint trusts client-provided `userId`
-- [ ] Habit queries are ownership-scoped
-- [ ] Goal queries are ownership-scoped
-- [ ] Habit record access goes through owned habit
-- [ ] Foreign resource IDs return non-leaking responses
-- [ ] Goal-habit ownership validated
+- [x] No endpoint trusts client-provided `userId`
+- [x] Habit queries are ownership-scoped
+- [x] Goal queries are ownership-scoped
+- [x] Habit record access goes through owned habit
+- [x] Foreign resource IDs return non-leaking responses
+- [x] Goal-habit ownership validated
 
 ### Suggested Commit
 
