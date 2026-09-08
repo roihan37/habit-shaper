@@ -5,6 +5,7 @@ import { Badge } from '../components/ui/badge'
 import { Button } from '../components/ui/button'
 import { Card, CardContent } from '../components/ui/card'
 import { Skeleton } from '../components/ui/skeleton'
+import { CreateHabitDialog } from '../habits/create-habit-dialog'
 import { useHabits, type Habit, type HabitType } from '../habits/use-habits'
 
 const sectionConfig = {
@@ -153,12 +154,15 @@ export function HabitsPage() {
 
   return (
     <main className="mx-auto w-full max-w-6xl px-5 py-8 sm:py-10">
-      <header className="mb-8">
-        <p className="mb-2 text-sm font-semibold text-primary">Your routines</p>
-        <h1 className="text-3xl font-semibold tracking-tight">Habits</h1>
-        <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base">
-          Manage the habits you want to build and break.
-        </p>
+      <header className="mb-8 flex flex-col items-start justify-between gap-5 sm:flex-row sm:items-end">
+        <div>
+          <p className="mb-2 text-sm font-semibold text-primary">Your routines</p>
+          <h1 className="text-3xl font-semibold tracking-tight">Habits</h1>
+          <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base">
+            Manage the habits you want to build and break.
+          </p>
+        </div>
+        <CreateHabitDialog />
       </header>
 
       {habitsQuery.isPending ? (

@@ -1088,11 +1088,11 @@ feat(frontend): add habit list
 
 ### Checklist
 
-- [ ] Habit name
-- [ ] Optional description
-- [ ] BUILD/BREAK selection
-- [ ] Validation
-- [ ] Query invalidation after create
+- [x] Habit name
+- [x] Optional description
+- [x] BUILD/BREAK selection
+- [x] Validation
+- [x] Query invalidation after create
 
 ### Suggested Commit
 
