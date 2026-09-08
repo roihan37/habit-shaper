@@ -26,6 +26,14 @@ export type BuildHabitStats = {
   }
 }
 
+export type BreakHabitStats = {
+  habitId: string
+  type: 'BREAK'
+  currentCleanStreak: number
+}
+
+export type HabitStats = BuildHabitStats | BreakHabitStats
+
 export const habitStatsQueryKey = (habitId: string) =>
   ['habits', habitId, 'stats'] as const
 export const habitRecordsQueryKey = (habitId: string) =>
@@ -50,11 +58,11 @@ export function useHabit(habitId: string) {
   })
 }
 
-export function useBuildHabitStats(habitId: string, enabled: boolean) {
+export function useHabitStats(habitId: string, enabled: boolean) {
   return useQuery({
     queryKey: habitStatsQueryKey(habitId),
     queryFn: async () => {
-      const response = await apiRequest<BuildHabitStats>(
+      const response = await apiRequest<HabitStats>(
         `/api/habits/${habitId}/stats`,
       )
       return response?.data

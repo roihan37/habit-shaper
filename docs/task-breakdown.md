@@ -1145,11 +1145,11 @@ feat(frontend): add build habit tracking
 
 ### Checklist
 
-- [ ] "Still clean" action
-- [ ] "Relapsed" action
-- [ ] Confirmation for relapse if useful
-- [ ] Clean streak display
-- [ ] Current daily state
+- [x] "Still clean" action
+- [x] "Relapsed" action
+- [x] Confirmation for relapse if useful
+- [x] Clean streak display
+- [x] Current daily state
 
 ### Suggested Commit
 

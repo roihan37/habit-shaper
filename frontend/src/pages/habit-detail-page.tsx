@@ -13,7 +13,19 @@ import { Link, useParams } from 'react-router-dom'
 import { toast } from 'sonner'
 
 import { Badge } from '../components/ui/badge'
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from '../components/ui/alert-dialog'
 import { Button } from '../components/ui/button'
+import { buttonVariants } from '../components/ui/button-variants'
 import { Card, CardContent } from '../components/ui/card'
 import { Progress } from '../components/ui/progress'
 import { Skeleton } from '../components/ui/skeleton'
@@ -21,7 +33,7 @@ import {
   getLocalCalendarDate,
   habitRecordsQueryKey,
   habitStatsQueryKey,
-  useBuildHabitStats,
+  useHabitStats,
   useHabit,
   useTodayHabitRecord,
   type HabitRecord,
@@ -38,6 +50,24 @@ const todayState = {
   FAILURE: {
     label: 'Missed today',
     className: 'border-amber-200 bg-amber-50 text-amber-700',
+    icon: XCircle,
+  },
+  PENDING: {
+    label: 'Pending today',
+    className: 'border-border bg-muted text-muted-foreground',
+    icon: CircleDashed,
+  },
+} as const
+
+const breakTodayState = {
+  SUCCESS: {
+    label: 'Still clean today',
+    className: 'border-primary/20 bg-primary/10 text-primary',
+    icon: CheckCircle2,
+  },
+  FAILURE: {
+    label: 'Relapsed today',
+    className: 'border-destructive/20 bg-destructive/5 text-destructive',
     icon: XCircle,
   },
   PENDING: {
@@ -71,8 +101,9 @@ export function HabitDetailPage() {
   const today = getLocalCalendarDate()
   const habitQuery = useHabit(habitId)
   const isBuild = habitQuery.data?.type === 'BUILD'
-  const statsQuery = useBuildHabitStats(habitId, isBuild)
-  const todayQuery = useTodayHabitRecord(habitId, today, isBuild)
+  const hasHabit = Boolean(habitQuery.data)
+  const statsQuery = useHabitStats(habitId, hasHabit)
+  const todayQuery = useTodayHabitRecord(habitId, today, hasHabit)
   const trackMutation = useMutation({
     mutationFn: (status: HabitRecordStatus) =>
       apiRequest<HabitRecord>(`/api/habits/${habitId}/today`, {
@@ -85,9 +116,13 @@ export function HabitDetailPage() {
         queryClient.invalidateQueries({ queryKey: habitRecordsQueryKey(habitId) }),
       ])
       toast.success(
-        status === 'SUCCESS'
-          ? 'Marked as completed for today.'
-          : 'Marked as missed for today.',
+        isBuild
+          ? status === 'SUCCESS'
+            ? 'Marked as completed for today.'
+            : 'Marked as missed for today.'
+          : status === 'SUCCESS'
+            ? 'Marked as clean for today.'
+            : 'Relapse recorded for today.',
       )
     },
     onError: () => {
@@ -112,22 +147,8 @@ export function HabitDetailPage() {
 
   const habit = habitQuery.data
 
-  if (habit.type !== 'BUILD') {
-    return (
-      <main className="mx-auto w-full max-w-6xl px-5 py-8 sm:py-10">
-        <Link className="mb-6 inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground" to="/habits">
-          <ArrowLeft className="size-4" aria-hidden="true" />
-          Back to habits
-        </Link>
-        <Badge variant="outline" className="border-amber-200 bg-amber-50 text-amber-700">Break</Badge>
-        <h1 className="mt-4 text-3xl font-semibold tracking-tight">{habit.name}</h1>
-        {habit.description && <p className="mt-2 text-muted-foreground">{habit.description}</p>}
-      </main>
-    )
-  }
-
   const status = todayQuery.data?.status ?? 'PENDING'
-  const state = todayState[status]
+  const state = isBuild ? todayState[status] : breakTodayState[status]
   const StateIcon = state.icon
   const stats = statsQuery.data
   const statsUnavailable = statsQuery.isError || todayQuery.isError
@@ -140,7 +161,7 @@ export function HabitDetailPage() {
       </Link>
 
       <header className="mb-8">
-        <Badge variant="outline" className="border-primary/20 bg-primary/10 text-primary">Build</Badge>
+        <Badge variant="outline" className={isBuild ? 'border-primary/20 bg-primary/10 text-primary' : 'border-amber-200 bg-amber-50 text-amber-700'}>{isBuild ? 'Build' : 'Break'}</Badge>
         <h1 className="mt-4 text-3xl font-semibold tracking-tight">{habit.name}</h1>
         {habit.description && <p className="mt-2 max-w-2xl text-muted-foreground">{habit.description}</p>}
       </header>
@@ -159,13 +180,33 @@ export function HabitDetailPage() {
             )}
           </div>
           <div className="flex w-full flex-col gap-2 sm:w-auto sm:flex-row">
-            <Button disabled={trackMutation.isPending} onClick={() => trackMutation.mutate('SUCCESS')}>
+            <Button disabled={trackMutation.isPending || todayQuery.isPending} onClick={() => trackMutation.mutate('SUCCESS')}>
               {trackMutation.isPending && <LoaderCircle className="animate-spin" aria-hidden="true" />}
-              {trackMutation.isPending ? 'Saving…' : 'Completed today'}
+              {trackMutation.isPending ? 'Saving…' : isBuild ? 'Completed today' : 'Still clean'}
             </Button>
-            <Button variant="outline" disabled={trackMutation.isPending} onClick={() => trackMutation.mutate('FAILURE')}>
-              Mark as missed
-            </Button>
+            {isBuild ? (
+              <Button variant="outline" disabled={trackMutation.isPending || todayQuery.isPending} onClick={() => trackMutation.mutate('FAILURE')}>
+                Mark as missed
+              </Button>
+            ) : (
+              <AlertDialog>
+                <AlertDialogTrigger asChild>
+                  <Button variant="outline" disabled={trackMutation.isPending || todayQuery.isPending} className="text-destructive hover:text-destructive">
+                    Relapsed
+                  </Button>
+                </AlertDialogTrigger>
+                <AlertDialogContent>
+                  <AlertDialogHeader>
+                    <AlertDialogTitle>Mark as relapsed?</AlertDialogTitle>
+                    <AlertDialogDescription>This will record a relapse for today and reset the current clean streak.</AlertDialogDescription>
+                  </AlertDialogHeader>
+                  <AlertDialogFooter>
+                    <AlertDialogCancel>Cancel</AlertDialogCancel>
+                    <AlertDialogAction className={buttonVariants({ variant: 'destructive' })} onClick={() => trackMutation.mutate('FAILURE')}>Mark relapse</AlertDialogAction>
+                  </AlertDialogFooter>
+                </AlertDialogContent>
+              </AlertDialog>
+            )}
           </div>
         </CardContent>
       </Card>
@@ -176,18 +217,24 @@ export function HabitDetailPage() {
           <div className="grid gap-4 md:grid-cols-3">
             {[0, 1, 2].map((item) => <Skeleton key={item} className="h-36 rounded-xl" />)}
           </div>
-        ) : statsUnavailable || !stats ? (
+        ) : statsUnavailable || !stats || stats.type !== habit.type ? (
           <Card role="alert" className="border-destructive/30">
             <CardContent className="p-6">
               <p className="font-semibold">Unable to load habit statistics.</p>
             </CardContent>
           </Card>
         ) : (
-          <div className="grid gap-4 md:grid-cols-3">
-            <Card><CardContent className="p-5"><Flame className="mb-5 size-5 text-primary" aria-hidden="true" /><p className="text-sm text-muted-foreground">Current streak</p><p className="mt-1 text-2xl font-semibold">{stats.currentStreak} {stats.currentStreak === 1 ? 'day' : 'days'}</p></CardContent></Card>
-            <Card><CardContent className="p-5"><CalendarCheck2 className="mb-5 size-5 text-primary" aria-hidden="true" /><div className="flex items-end justify-between gap-3"><p className="text-sm text-muted-foreground">Weekly completion</p><p className="text-2xl font-semibold">{stats.weekly.completionRate}%</p></div><Progress className="mt-4" value={stats.weekly.completionRate} aria-label={`${stats.weekly.completionRate}% weekly completion`} /><p className="mt-3 text-xs text-muted-foreground">{stats.weekly.completedDays} of {stats.weekly.eligibleDays} eligible days completed</p></CardContent></Card>
-            <Card><CardContent className="p-5"><CalendarX2 className="mb-5 size-5 text-amber-700" aria-hidden="true" /><p className="text-sm text-muted-foreground">Missed days</p><p className="mt-1 text-2xl font-semibold">{stats.weekly.missedDays}</p></CardContent></Card>
-          </div>
+          stats.type === 'BREAK' ? (
+            <div className="grid gap-4 md:grid-cols-3">
+              <Card><CardContent className="p-5"><Flame className="mb-5 size-5 text-primary" aria-hidden="true" /><p className="text-sm text-muted-foreground">Clean streak</p><p className="mt-1 text-2xl font-semibold">{stats.currentCleanStreak} {stats.currentCleanStreak === 1 ? 'day' : 'days'}</p></CardContent></Card>
+            </div>
+          ) : (
+            <div className="grid gap-4 md:grid-cols-3">
+              <Card><CardContent className="p-5"><Flame className="mb-5 size-5 text-primary" aria-hidden="true" /><p className="text-sm text-muted-foreground">Current streak</p><p className="mt-1 text-2xl font-semibold">{stats.currentStreak} {stats.currentStreak === 1 ? 'day' : 'days'}</p></CardContent></Card>
+              <Card><CardContent className="p-5"><CalendarCheck2 className="mb-5 size-5 text-primary" aria-hidden="true" /><div className="flex items-end justify-between gap-3"><p className="text-sm text-muted-foreground">Weekly completion</p><p className="text-2xl font-semibold">{stats.weekly.completionRate}%</p></div><Progress className="mt-4" value={stats.weekly.completionRate} aria-label={`${stats.weekly.completionRate}% weekly completion`} /><p className="mt-3 text-xs text-muted-foreground">{stats.weekly.completedDays} of {stats.weekly.eligibleDays} eligible days completed</p></CardContent></Card>
+              <Card><CardContent className="p-5"><CalendarX2 className="mb-5 size-5 text-amber-700" aria-hidden="true" /><p className="text-sm text-muted-foreground">Missed days</p><p className="mt-1 text-2xl font-semibold">{stats.weekly.missedDays}</p></CardContent></Card>
+            </div>
+          )
         )}
       </section>
     </main>
