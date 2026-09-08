@@ -132,26 +132,52 @@ export function CreateGoalDialog({ habits }: { habits: Habit[] }) {
 
           <div className="grid gap-2">
             <Label htmlFor="goal-habit">Habit</Label>
+
             <Controller
               control={control}
               name="habitId"
               render={({ field }) => (
-                <Select value={field.value} onValueChange={field.onChange} disabled={habits.length === 0}>
-                  <SelectTrigger id="goal-habit" aria-invalid={errors.habitId ? 'true' : 'false'} aria-describedby={errors.habitId ? 'goal-habit-error' : undefined}>
-                    <SelectValue placeholder="Select a habit" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    {habits.map((habit) => (
-                      <SelectItem key={habit.id} value={habit.id}>
-                        {habit.name} · {habit.type === 'BUILD' ? 'Build' : 'Break'}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
+                <Select
+                  value={field.value}
+                  onValueChange={field.onChange}
+                  disabled={habits.length === 0}
+                >
+                  <SelectTrigger
+  id="goal-habit"
+  aria-invalid={errors.habitId ? 'true' : 'false'}
+  aria-describedby={
+    errors.habitId ? 'goal-habit-error' : undefined
+  }
+>
+  <SelectValue placeholder="Select a habit" />
+</SelectTrigger>
+
+                  <SelectContent position="popper" sideOffset={6}>
+  {habits.map((habit) => (
+    <SelectItem key={habit.id} value={habit.id}>
+      {habit.name} · {habit.type === 'BUILD' ? 'Build' : 'Break'}
+    </SelectItem>
+  ))}
+</SelectContent>
                 </Select>
               )}
             />
-            {habits.length === 0 && <p className="text-xs text-muted-foreground">Create a habit before adding a goal.</p>}
-            {errors.habitId && <p className="text-xs text-destructive" id="goal-habit-error" role="alert">{errors.habitId.message}</p>}
+
+            {habits.length === 0 && (
+              <p className="text-xs text-muted-foreground">
+                Create a habit before adding a goal.
+              </p>
+            )}
+
+            {errors.habitId && (
+              <p
+                className="text-xs text-destructive"
+                id="goal-habit-error"
+                role="alert"
+              >
+                {errors.habitId.message}
+              </p>
+            )}
           </div>
 
           <div className="grid gap-2">

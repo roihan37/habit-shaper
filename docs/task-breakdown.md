@@ -1106,11 +1106,11 @@ feat(frontend): add habit creation
 
 ### Checklist
 
-- [ ] Edit name
-- [ ] Edit description
-- [ ] Do not allow type conversion
-- [ ] Delete confirmation
-- [ ] Refresh related UI state
+- [x] Edit name
+- [x] Edit description
+- [x] Do not allow type conversion
+- [x] Delete confirmation
+- [x] Refresh related UI state
 
 ### Suggested Commit
 
