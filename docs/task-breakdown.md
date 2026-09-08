@@ -1306,14 +1306,14 @@ fix(security): enforce resource ownership rules
 
 ### Checklist
 
-- [ ] Passwords hashed
-- [ ] Password hash never returned
-- [ ] Invalid login response does not reveal account existence
-- [ ] JWT not exposed to frontend JavaScript
-- [ ] HttpOnly enabled
-- [ ] Secure enabled in production
-- [ ] CORS restricted
-- [ ] Credentials configured correctly
+- [x] Passwords hashed
+- [x] Password hash never returned
+- [x] Invalid login response does not reveal account existence
+- [x] JWT not exposed to frontend JavaScript
+- [x] HttpOnly enabled
+- [x] Secure enabled in production
+- [x] CORS restricted
+- [x] Credentials configured correctly
 
 ### Suggested Commit
 
