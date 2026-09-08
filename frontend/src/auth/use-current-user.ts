@@ -7,18 +7,22 @@ export type CurrentUser = {
   email: string
 }
 
+export const currentUserQueryKey = ['auth', 'current-user'] as const
+
+export async function fetchCurrentUser() {
+  try {
+    const response = await apiRequest<CurrentUser>('/api/auth/me')
+    return response?.data ?? null
+  } catch (error) {
+    if (error instanceof ApiError && error.status === 401) return null
+    throw error
+  }
+}
+
 export function useCurrentUser() {
   return useQuery({
-    queryKey: ['auth', 'current-user'],
-    queryFn: async () => {
-      try {
-        const response = await apiRequest<CurrentUser>('/api/auth/me')
-        return response?.data ?? null
-      } catch (error) {
-        if (error instanceof ApiError && error.status === 401) return null
-        throw error
-      }
-    },
+    queryKey: currentUserQueryKey,
+    queryFn: fetchCurrentUser,
     retry: (failureCount, error) =>
       !(error instanceof ApiError && error.status === 401) && failureCount < 1,
   })

@@ -7,9 +7,9 @@ import {
   GoalsPage,
   HabitDetailPage,
   HabitsPage,
-  LoginPage,
   NotFoundPage,
 } from '../pages/route-pages'
+import { LoginPage } from '../pages/login-page'
 import { RegisterPage } from '../pages/register-page'
 
 export const router = createBrowserRouter([

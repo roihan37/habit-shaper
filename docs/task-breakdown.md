@@ -1034,11 +1034,11 @@ feat(frontend): build registration flow
 
 ### Checklist
 
-- [ ] Email field
-- [ ] Password field
-- [ ] Invalid credentials handling
-- [ ] Redirect after login
-- [ ] Fetch current user
+- [x] Email field
+- [x] Password field
+- [x] Invalid credentials handling
+- [x] Redirect after login
+- [x] Fetch current user
 
 ### Suggested Commit
 

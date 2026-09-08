@@ -8,10 +8,6 @@ function Page({ title }: { title: string }) {
   )
 }
 
-export function LoginPage() {
-  return <Page title="Login" />
-}
-
 export function DashboardPage() {
   return <Page title="Dashboard" />
 }
