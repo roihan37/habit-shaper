@@ -5,6 +5,7 @@ import { Badge } from '../components/ui/badge'
 import { Button } from '../components/ui/button'
 import { Card, CardContent } from '../components/ui/card'
 import { Skeleton } from '../components/ui/skeleton'
+import { CreateGoalDialog } from '../goals/create-goal-dialog'
 import { useGoals, type Goal } from '../goals/use-goals'
 import { useHabits, type Habit } from '../habits/use-habits'
 
@@ -99,12 +100,15 @@ export function GoalsPage() {
 
   return (
     <main className="mx-auto w-full max-w-6xl px-5 py-8 sm:py-10">
-      <header className="mb-8">
-        <p className="mb-2 text-sm font-semibold text-primary">Your direction</p>
-        <h1 className="text-3xl font-semibold tracking-tight">Goals</h1>
-        <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base">
-          Keep your goals connected to the habits that matter.
-        </p>
+      <header className="mb-8 flex flex-col items-start justify-between gap-5 sm:flex-row sm:items-end">
+        <div>
+          <p className="mb-2 text-sm font-semibold text-primary">Your direction</p>
+          <h1 className="text-3xl font-semibold tracking-tight">Goals</h1>
+          <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base">
+            Keep your goals connected to the habits that matter.
+          </p>
+        </div>
+        <CreateGoalDialog habits={habitsQuery.data ?? []} />
       </header>
 
       {goalsQuery.isPending || habitsQuery.isPending ? (

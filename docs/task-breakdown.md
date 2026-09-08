@@ -1200,11 +1200,11 @@ feat(frontend): add goals page
 
 ### Checklist
 
-- [ ] Select owned habit
-- [ ] Goal title
-- [ ] Optional description
-- [ ] Validation
-- [ ] Refresh list
+- [x] Select owned habit
+- [x] Goal title
+- [x] Optional description
+- [x] Validation
+- [x] Refresh list
 
 ### Suggested Commit
 
