@@ -2,6 +2,25 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  :root {
+    --background: 140 20% 97%;
+    --foreground: 137 17% 11%;
+    --card: 0 0% 100%;
+    --card-foreground: 137 17% 11%;
+    --primary: 142 50% 32%;
+    --primary-foreground: 0 0% 100%;
+    --muted: 138 18% 95%;
+    --muted-foreground: 138 9% 42%;
+    --destructive: 0 58% 46%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 136 15% 88%;
+    --input: 136 14% 80%;
+    --ring: 142 50% 32%;
+    --radius: 0.75rem;
+  }
+}
+
 * {
   box-sizing: border-box;
 }
