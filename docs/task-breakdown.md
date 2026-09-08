@@ -1327,12 +1327,12 @@ fix(security): harden authentication configuration
 
 ### Checklist
 
-- [ ] Zod validates public inputs
-- [ ] Internal Prisma errors not leaked
-- [ ] Stack traces not returned in production
-- [ ] Secrets not logged
-- [ ] Passwords not logged
-- [ ] Cookies/tokens not logged
+- [x] Zod validates public inputs
+- [x] Internal Prisma errors not leaked
+- [x] Stack traces not returned in production
+- [x] Secrets not logged
+- [x] Passwords not logged
+- [x] Cookies/tokens not logged
 
 ---
 
@@ -1343,50 +1343,50 @@ passes.
 
 ## Task 18.1 - Authentication Tests
 
-- [ ] Registration success
-- [ ] Duplicate email
-- [ ] Login success
-- [ ] Invalid credentials
-- [ ] Protected endpoint without authentication
-- [ ] Logout clears the authentication cookie
+- [x] Registration success
+- [x] Duplicate email
+- [x] Login success
+- [x] Invalid credentials
+- [x] Protected endpoint without authentication
+- [x] Logout clears the authentication cookie
 
 ---
 
 ## Task 18.2 - Habit Tests
 
-- [ ] Create BUILD
-- [ ] Create BREAK
-- [ ] List
-- [ ] Update
-- [ ] Delete
-- [ ] User cannot access another user's habit
-- [ ] User cannot update another user's habit
-- [ ] User cannot delete another user's habit
-- [ ] User cannot access another user's goal
-- [ ] Goal cannot link to another user's habit
+- [x] Create BUILD
+- [x] Create BREAK
+- [x] List
+- [x] Update
+- [x] Delete
+- [x] User cannot access another user's habit
+- [x] User cannot update another user's habit
+- [x] User cannot delete another user's habit
+- [x] User cannot access another user's goal
+- [x] Goal cannot link to another user's habit
 
 ---
 
 ## Task 18.3 - Tracking Tests
 
-- [ ] Track today
-- [ ] Repeated PUT updates the same daily record
-- [ ] Duplicate habit/date row is not created
+- [x] Track today
+- [x] Repeated PUT updates the same daily record
+- [x] Duplicate habit/date row is not created
 
 ---
 
 ## Task 18.4 - Business Logic Tests
 
-- [ ] Build streak
-- [ ] Break clean streak
-- [ ] Relapse resets clean streak
-- [ ] Missing past eligible day breaks streak
-- [ ] Untracked today remains pending
-- [ ] Dates before habit creation are excluded
-- [ ] Weekly completion
-- [ ] Weekly missed days
-- [ ] Weekly eligible days
-- [ ] `completionRate` rounding
+- [x] Build streak
+- [x] Break clean streak
+- [x] Relapse resets clean streak
+- [x] Missing past eligible day breaks streak
+- [x] Untracked today remains pending
+- [x] Dates before habit creation are excluded
+- [x] Weekly completion
+- [x] Weekly missed days
+- [x] Weekly eligible days
+- [x] `completionRate` rounding
 
 ### Suggested Commit
 
