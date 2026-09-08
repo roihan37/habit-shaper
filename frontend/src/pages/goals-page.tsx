@@ -6,21 +6,22 @@ import { Button } from '../components/ui/button'
 import { Card, CardContent } from '../components/ui/card'
 import { Skeleton } from '../components/ui/skeleton'
 import { CreateGoalDialog } from '../goals/create-goal-dialog'
+import { GoalActions } from '../goals/goal-actions'
 import { useGoals, type Goal } from '../goals/use-goals'
 import { useHabits, type Habit } from '../habits/use-habits'
 
-function GoalCard({ goal, habit }: { goal: Goal; habit: Habit }) {
+function GoalCard({ goal, habit, habits }: { goal: Goal; habit: Habit; habits: Habit[] }) {
   const isBuild = habit.type === 'BUILD'
 
   return (
     <Card className="h-full transition-colors hover:border-primary/30 hover:bg-muted/40">
       <CardContent className="flex h-full flex-col p-5">
-        <span
-          className="mb-4 grid size-9 place-items-center rounded-lg bg-primary/10 text-primary"
-          aria-hidden="true"
-        >
-          <Target className="size-4" />
-        </span>
+        <div className="mb-4 flex items-start justify-between gap-3">
+          <span className="grid size-9 place-items-center rounded-lg bg-primary/10 text-primary" aria-hidden="true">
+            <Target className="size-4" />
+          </span>
+          <GoalActions goal={goal} habits={habits} />
+        </div>
         <h2 className="text-base font-semibold leading-snug">{goal.title}</h2>
         {goal.description && (
           <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">
@@ -148,7 +149,7 @@ export function GoalsPage() {
         <section aria-label="Your goals" className="grid gap-3 md:grid-cols-2">
           {goals.map((goal) => {
             const habit = habitsById.get(goal.habitId)
-            return habit ? <GoalCard key={goal.id} goal={goal} habit={habit} /> : null
+            return habit ? <GoalCard key={goal.id} goal={goal} habit={habit} habits={habitsQuery.data ?? []} /> : null
           })}
         </section>
       )}

@@ -1218,11 +1218,11 @@ feat(frontend): add goal creation
 
 ### Checklist
 
-- [ ] Edit title
-- [ ] Edit description
-- [ ] Change to another owned habit
-- [ ] Delete goal
-- [ ] Confirmation where appropriate
+- [x] Edit title
+- [x] Edit description
+- [x] Change to another owned habit
+- [x] Delete goal
+- [x] Confirmation where appropriate
 
 ### Suggested Commit
 
