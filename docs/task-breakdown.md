@@ -287,10 +287,10 @@ chore(backend): initialize express typescript application
 
 ### Checklist
 
-- [ ] Add MySQL service to `compose.yml`
-- [ ] Add persistent database volume
-- [ ] Add healthcheck
-- [ ] Configure database environment variables
+- [x] Add MySQL service to `compose.yml`
+- [x] Add persistent database volume
+- [x] Add healthcheck
+- [x] Configure database environment variables
 - [ ] Confirm backend can resolve MySQL service by Docker service name
 
 ### Done When
