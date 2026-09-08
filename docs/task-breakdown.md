@@ -559,11 +559,11 @@ feat(auth): implement login with http-only cookie
 
 ### Checklist
 
-- [ ] Read authentication cookie
-- [ ] Verify JWT
-- [ ] Attach authenticated user context
-- [ ] Reject missing/invalid authentication
-- [ ] Never trust client-provided `userId`
+- [x] Read authentication cookie
+- [x] Verify JWT
+- [x] Attach authenticated user context
+- [x] Reject missing/invalid authentication
+- [x] Never trust client-provided `userId`
 
 ### Suggested Commit
 
