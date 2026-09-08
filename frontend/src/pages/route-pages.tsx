@@ -12,10 +12,6 @@ export function LoginPage() {
   return <Page title="Login" />
 }
 
-export function RegisterPage() {
-  return <Page title="Register" />
-}
-
 export function DashboardPage() {
   return <Page title="Dashboard" />
 }

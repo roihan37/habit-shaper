@@ -1015,12 +1015,12 @@ feat(frontend): add application routing
 
 ### Checklist
 
-- [ ] Email field
-- [ ] Password field
-- [ ] Client-side Zod validation
-- [ ] Server validation handling
-- [ ] Duplicate email handling
-- [ ] Link to login
+- [x] Email field
+- [x] Password field
+- [x] Client-side Zod validation
+- [x] Server validation handling
+- [x] Duplicate email handling
+- [x] Link to login
 
 ### Suggested Commit
 

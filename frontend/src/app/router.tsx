@@ -9,8 +9,8 @@ import {
   HabitsPage,
   LoginPage,
   NotFoundPage,
-  RegisterPage,
 } from '../pages/route-pages'
+import { RegisterPage } from '../pages/register-page'
 
 export const router = createBrowserRouter([
   {
