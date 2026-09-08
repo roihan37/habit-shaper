@@ -424,12 +424,12 @@ test(database): verify relational constraints
 
 ### Checklist
 
-- [ ] Parse environment variables
-- [ ] Validate required variables at startup
-- [ ] Add `APP_TIMEZONE`
-- [ ] Add authentication secret
-- [ ] Add frontend origin
-- [ ] Add database configuration
+- [x] Parse environment variables
+- [x] Validate required variables at startup
+- [x] Add `APP_TIMEZONE`
+- [x] Add authentication secret
+- [x] Add frontend origin
+- [x] Add database configuration
 
 ### Suggested Commit
 

@@ -1,12 +1,13 @@
 import express from "express"
 import cors from "cors"
 import cookieParser from "cookie-parser"
+import { env } from "./config/env.js"
 
 export const app = express()
 
 app.use(
   cors({
-    origin: process.env.FRONTEND_URL ?? "http://localhost:3000",
+    origin: env.FRONTEND_URL,
     credentials: true,
   })
 )
