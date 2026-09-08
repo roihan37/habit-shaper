@@ -1070,11 +1070,11 @@ feat(frontend): add logout flow
 
 ### Checklist
 
-- [ ] Fetch habits
-- [ ] Separate BUILD/BREAK visually
-- [ ] Loading state
-- [ ] Empty state
-- [ ] Error state
+- [x] Fetch habits
+- [x] Separate BUILD/BREAK visually
+- [x] Loading state
+- [x] Empty state
+- [x] Error state
 
 ### Suggested Commit
 

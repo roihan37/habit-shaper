@@ -12,10 +12,6 @@ export function DashboardPage() {
   return <Page title="Dashboard" />
 }
 
-export function HabitsPage() {
-  return <Page title="Habits" />
-}
-
 export function HabitDetailPage() {
   const { habitId } = useParams<{ habitId: string }>()
 

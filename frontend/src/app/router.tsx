@@ -6,9 +6,9 @@ import {
   DashboardPage,
   GoalsPage,
   HabitDetailPage,
-  HabitsPage,
   NotFoundPage,
 } from '../pages/route-pages'
+import { HabitsPage } from '../pages/habits-page'
 import { LoginPage } from '../pages/login-page'
 import { RegisterPage } from '../pages/register-page'
 
