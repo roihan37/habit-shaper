@@ -802,11 +802,11 @@ today without record = pending
 
 ### Tests
 
-- [ ] One clean day
-- [ ] Multiple clean days
-- [ ] Relapse resets streak
-- [ ] New clean day after relapse starts at 1
-- [ ] Missing past day breaks continuity
+- [x] One clean day
+- [x] Multiple clean days
+- [x] Relapse resets streak
+- [x] New clean day after relapse starts at 1
+- [x] Missing past day breaks continuity
 
 ### Suggested Commit
 
