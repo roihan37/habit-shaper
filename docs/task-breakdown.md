@@ -630,24 +630,24 @@ DELETE /api/habits/:habitId
 
 ### Checklist
 
-- [ ] List current user's habits
-- [ ] Filter by BUILD/BREAK
-- [ ] Create BUILD habit
-- [ ] Create BREAK habit
-- [ ] Retrieve owned habit
-- [ ] Update owned habit
-- [ ] Delete owned habit
-- [ ] Prevent cross-user access
-- [ ] Keep habit type immutable after creation
-- [ ] PATCH accepts only `name` and `description`
-- [ ] PATCH rejects `type`, `userId`, `createdAt`, and owner fields
+- [x] List current user's habits
+- [x] Filter by BUILD/BREAK
+- [x] Create BUILD habit
+- [x] Create BREAK habit
+- [x] Retrieve owned habit
+- [x] Update owned habit
+- [x] Delete owned habit
+- [x] Prevent cross-user access
+- [x] Keep habit type immutable after creation
+- [x] PATCH accepts only `name` and `description`
+- [x] PATCH rejects `type`, `userId`, `createdAt`, and owner fields
 
 ### Tests
 
-- [ ] User A sees only User A habits
-- [ ] User B cannot access User A habit
-- [ ] Invalid type rejected
-- [ ] Delete cascades correctly
+- [x] User A sees only User A habits
+- [x] User B cannot access User A habit
+- [x] Invalid type rejected
+- [x] Delete cascades correctly
 
 ### Suggested Commit
 
