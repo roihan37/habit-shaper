@@ -1126,12 +1126,12 @@ feat(frontend): add habit edit and delete actions
 
 ### Checklist
 
-- [ ] "Completed today" action
-- [ ] Missed/failure action if exposed
-- [ ] Pending state
-- [ ] Current streak display
-- [ ] Weekly completion display
-- [ ] Missed-day display
+- [x] "Completed today" action
+- [x] Missed/failure action if exposed
+- [x] Pending state
+- [x] Current streak display
+- [x] Weekly completion display
+- [x] Missed-day display
 
 ### Suggested Commit
 

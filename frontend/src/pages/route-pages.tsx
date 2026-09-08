@@ -1,4 +1,4 @@
-import { Link, useParams } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 function Page({ title }: { title: string }) {
   return (
@@ -10,12 +10,6 @@ function Page({ title }: { title: string }) {
 
 export function DashboardPage() {
   return <Page title="Dashboard" />
-}
-
-export function HabitDetailPage() {
-  const { habitId } = useParams<{ habitId: string }>()
-
-  return <Page title={`Habit ${habitId}`} />
 }
 
 export function GoalsPage() {

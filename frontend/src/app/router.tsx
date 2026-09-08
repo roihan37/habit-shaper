@@ -5,9 +5,9 @@ import { ProtectedRoute } from '../auth/protected-route'
 import {
   DashboardPage,
   GoalsPage,
-  HabitDetailPage,
   NotFoundPage,
 } from '../pages/route-pages'
+import { HabitDetailPage } from '../pages/habit-detail-page'
 import { HabitsPage } from '../pages/habits-page'
 import { LoginPage } from '../pages/login-page'
 import { RegisterPage } from '../pages/register-page'
