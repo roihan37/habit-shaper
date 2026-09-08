@@ -384,10 +384,10 @@ feat(database): define prisma data model
 
 ### Checklist
 
-- [ ] Generate initial Prisma migration
-- [ ] Commit migration files
-- [ ] Apply migration automatically in container startup
-- [ ] Verify empty database bootstraps successfully
+- [x] Generate initial Prisma migration
+- [x] Commit migration files
+- [x] Apply migration automatically in container startup
+- [x] Verify empty database bootstraps successfully
 
 ### Suggested Commit
 
