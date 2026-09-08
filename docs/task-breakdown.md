@@ -885,17 +885,17 @@ GET /api/habits/:habitId/stats
 
 ### BUILD Response
 
-- [ ] current streak
-- [ ] week start
-- [ ] week end
-- [ ] completed days
-- [ ] missed days
-- [ ] eligible days
-- [ ] completion rate
+- [x] current streak
+- [x] week start
+- [x] week end
+- [x] completed days
+- [x] missed days
+- [x] eligible days
+- [x] completion rate
 
 ### BREAK Response
 
-- [ ] current clean streak
+- [x] current clean streak
 
 ### Suggested Commit
 

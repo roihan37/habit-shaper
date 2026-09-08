@@ -25,6 +25,15 @@ export const getHabit = async (req: Request, res: Response) => {
   return res.status(200).json({ data: habit })
 }
 
+export const getHabitStats = async (req: Request, res: Response) => {
+  const { habitId } = req.params as HabitIdParams
+  const stats = await habitService.getHabitStats(
+    authenticatedUserId(req),
+    habitId,
+  )
+  return res.status(200).json({ data: stats })
+}
+
 export const createHabit = async (req: Request, res: Response) => {
   const habit = await habitService.createHabit(authenticatedUserId(req), req.body)
   return res.status(201).json({ data: habit })

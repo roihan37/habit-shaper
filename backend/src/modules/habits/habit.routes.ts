@@ -6,6 +6,7 @@ import {
   createHabit,
   deleteHabit,
   getHabit,
+  getHabitStats,
   listHabits,
   updateHabit,
 } from "./habit.controller.js"
@@ -29,6 +30,12 @@ habitRouter.post(
   validateRequest({ body: createHabitSchema }),
   authenticate,
   createHabit,
+)
+habitRouter.get(
+  "/:habitId/stats",
+  validateRequest({ params: habitIdParamsSchema }),
+  authenticate,
+  getHabitStats,
 )
 habitRouter.get(
   "/:habitId",
