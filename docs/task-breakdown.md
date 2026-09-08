@@ -858,14 +858,14 @@ completedDays / eligibleDays * 100
 
 ### Tests
 
-- [ ] Historical full week
-- [ ] Current partial week
-- [ ] Missing past day counted as missed
-- [ ] Dates before habit creation excluded from eligible and missed days
-- [ ] Today pending excluded
-- [ ] No eligible days returns 0 safely
-- [ ] `2 / 3` rounds to numeric `66.7`
-- [ ] Completion rate is not returned as a percent string
+- [x] Historical full week
+- [x] Current partial week
+- [x] Missing past day counted as missed
+- [x] Dates before habit creation excluded from eligible and missed days
+- [x] Today pending excluded
+- [x] No eligible days returns 0 safely
+- [x] `2 / 3` rounds to numeric `66.7`
+- [x] Completion rate is not returned as a percent string
 
 ### Suggested Commit
 
