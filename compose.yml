@@ -3,19 +3,15 @@ services:
     image: mysql:8.4
     container_name: habit-shaper-mysql
     restart: unless-stopped
-
     environment:
       MYSQL_DATABASE: ${DATABASE_NAME}
       MYSQL_USER: ${DATABASE_USER}
       MYSQL_PASSWORD: ${DATABASE_PASSWORD}
       MYSQL_ROOT_PASSWORD: ${DATABASE_ROOT_PASSWORD}
-
     ports:
       - "3306:3306"
-
     volumes:
       - mysql_data:/var/lib/mysql
-
     healthcheck:
       test:
         [
@@ -26,6 +22,23 @@ services:
       timeout: 5s
       retries: 10
       start_period: 20s
+
+  backend:
+    build:
+      context: ./backend
+    container_name: habit-shaper-backend
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      DATABASE_HOST: mysql
+      DATABASE_PORT: 3306
+      DATABASE_URL: mysql://${DATABASE_USER}:${DATABASE_PASSWORD}@mysql:3306/${DATABASE_NAME}
+    ports:
+      - "4000:4000"
+    depends_on:
+      mysql:
+        condition: service_healthy
 
 volumes:
   mysql_data:

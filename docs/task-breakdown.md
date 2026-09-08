@@ -291,7 +291,7 @@ chore(backend): initialize express typescript application
 - [x] Add persistent database volume
 - [x] Add healthcheck
 - [x] Configure database environment variables
-- [ ] Confirm backend can resolve MySQL service by Docker service name
+- [x] Confirm backend can resolve MySQL service by Docker service name
 
 ### Done When
 
@@ -309,12 +309,12 @@ chore: configure mysql docker service
 
 ### Checklist
 
-- [ ] Create backend Dockerfile
-- [ ] Install dependencies inside container
-- [ ] Build TypeScript
-- [ ] Configure startup command
-- [ ] Add database readiness strategy
-- [ ] Ensure migrations run before API startup
+- [x] Create backend Dockerfile
+- [x] Install dependencies inside container
+- [x] Build TypeScript
+- [x] Configure startup command
+- [x] Add database readiness strategy
+- [x] Ensure migrations run before API startup
 
 ### Done When
 
