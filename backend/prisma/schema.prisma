@@ -1,8 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Get a free hosted Postgres database in seconds: `npx create-db`
-
 generator client {
   provider = "prisma-client"
   output   = "../src/generated/prisma"
@@ -10,4 +5,77 @@ generator client {
 
 datasource db {
   provider = "mysql"
+}
+
+enum HabitType {
+  BUILD
+  BREAK
+}
+
+enum HabitRecordStatus {
+  SUCCESS
+  FAILURE
+}
+
+model User {
+  id           String   @id @default(uuid())
+  email        String   @unique @db.VarChar(255)
+  passwordHash String   @map("password_hash") @db.VarChar(255)
+  createdAt    DateTime @default(now()) @map("created_at") @db.DateTime(3)
+  updatedAt    DateTime @updatedAt @map("updated_at") @db.DateTime(3)
+
+  habits Habit[]
+  goals  Goal[]
+
+  @@map("users")
+}
+
+model Habit {
+  id          String    @id @default(uuid())
+  userId      String    @map("user_id")
+  name        String    @db.VarChar(120)
+  description String?   @db.Text
+  type        HabitType
+  createdAt   DateTime  @default(now()) @map("created_at") @db.DateTime(3)
+  updatedAt   DateTime  @updatedAt @map("updated_at") @db.DateTime(3)
+
+  user    User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  records HabitRecord[]
+  goals   Goal[]
+
+  @@index([userId])
+  @@index([userId, type])
+  @@map("habits")
+}
+
+model HabitRecord {
+  id         String            @id @default(uuid())
+  habitId    String            @map("habit_id")
+  recordDate DateTime          @map("record_date") @db.Date
+  status     HabitRecordStatus
+  createdAt  DateTime          @default(now()) @map("created_at") @db.DateTime(3)
+  updatedAt  DateTime          @updatedAt @map("updated_at") @db.DateTime(3)
+
+  habit Habit @relation(fields: [habitId], references: [id], onDelete: Cascade)
+
+  @@unique([habitId, recordDate])
+  @@map("habit_records")
+}
+
+model Goal {
+  id          String   @id @default(uuid())
+  userId      String   @map("user_id")
+  habitId     String   @map("habit_id")
+  title       String   @db.VarChar(160)
+  description String?  @db.Text
+  createdAt   DateTime @default(now()) @map("created_at") @db.DateTime(3)
+  updatedAt   DateTime @updatedAt @map("updated_at") @db.DateTime(3)
+
+  user  User  @relation(fields: [userId], references: [id], onDelete: Cascade)
+  habit Habit @relation(fields: [habitId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([habitId])
+  @@index([userId, habitId])
+  @@map("goals")
 }

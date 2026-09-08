@@ -351,26 +351,26 @@ chore(frontend): add docker configuration
 
 ### Models
 
-- [ ] `User`
-- [ ] `Habit`
-- [ ] `HabitRecord`
-- [ ] `Goal`
+- [x] `User`
+- [x] `Habit`
+- [x] `HabitRecord`
+- [x] `Goal`
 
 ### Enums
 
-- [ ] `HabitType`
-- [ ] `HabitRecordStatus`
+- [x] `HabitType`
+- [x] `HabitRecordStatus`
 
 ### Required Constraints
 
-- [ ] Unique user email
-- [ ] Foreign key Habit -> User
-- [ ] Foreign key HabitRecord -> Habit
-- [ ] Foreign key Goal -> User
-- [ ] Foreign key Goal -> Habit
-- [ ] `UNIQUE(habit_id, record_date)`
-- [ ] Cascade delete rules
-- [ ] Required indexes
+- [x] Unique user email
+- [x] Foreign key Habit -> User
+- [x] Foreign key HabitRecord -> Habit
+- [x] Foreign key Goal -> User
+- [x] Foreign key Goal -> Habit
+- [x] `UNIQUE(habit_id, record_date)`
+- [x] Cascade delete rules
+- [x] Required indexes
 
 ### Suggested Commit
 
