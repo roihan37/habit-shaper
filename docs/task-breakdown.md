@@ -911,11 +911,11 @@ feat(stats): expose habit statistics endpoint
 
 ### Checklist
 
-- [ ] List goals by user
-- [ ] Find goal by owner
-- [ ] Create goal
-- [ ] Update goal
-- [ ] Delete goal
+- [x] List goals by user
+- [x] Find goal by owner
+- [x] Create goal
+- [x] Update goal
+- [x] Delete goal
 
 ### Suggested Commit
 
