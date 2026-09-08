@@ -88,15 +88,15 @@ UI Polish
 
 ### Checklist
 
-- [ ] Confirm build habit requirements
-- [ ] Confirm break habit requirements
-- [ ] Confirm goal requirements
-- [ ] Confirm email/password authentication
-- [ ] Confirm MySQL requirement
-- [ ] Confirm React requirement
-- [ ] Confirm Node.js + TypeScript requirement
-- [ ] Confirm Docker Compose requirement
-- [ ] Confirm automatic database bootstrap requirement
+- [x] Confirm build habit requirements
+- [x] Confirm break habit requirements
+- [x] Confirm goal requirements
+- [x] Confirm email/password authentication
+- [x] Confirm MySQL requirement
+- [x] Confirm React requirement
+- [x] Confirm Node.js + TypeScript requirement
+- [x] Confirm Docker Compose requirement
+- [x] Confirm automatic database bootstrap requirement
 
 ### Deliverables
 
@@ -124,42 +124,42 @@ docs: define system architecture and implementation plan
 
 ### Frontend
 
-- [ ] React
-- [ ] TypeScript
-- [ ] Vite
-- [ ] React Router
-- [ ] TanStack Query
-- [ ] React Hook Form
-- [ ] Zod
-- [ ] Tailwind CSS
-- [ ] shadcn/ui
-- [ ] Lucide React
+- [x] React
+- [x] TypeScript
+- [x] Vite
+- [x] React Router
+- [x] TanStack Query
+- [x] React Hook Form
+- [x] Zod
+- [x] Tailwind CSS
+- [x] shadcn/ui
+- [x] Lucide React
 
 ### Backend
 
-- [ ] Node.js
-- [ ] TypeScript
-- [ ] Express
-- [ ] Zod
-- [ ] Prisma ORM
-- [ ] JWT
-- [ ] HttpOnly Cookie
-- [ ] bcrypt
+- [x] Node.js
+- [x] TypeScript
+- [x] Express
+- [x] Zod
+- [x] Prisma ORM
+- [x] JWT
+- [x] HttpOnly Cookie
+- [x] bcrypt
 
 ### Database
 
-- [ ] MySQL
-- [ ] Prisma Migrate
+- [x] MySQL
+- [x] Prisma Migrate
 
 ### Testing
 
-- [ ] Vitest
-- [ ] Supertest
+- [x] Vitest
+- [x] Supertest
 
 ### Infrastructure
 
-- [ ] Docker
-- [ ] Docker Compose
+- [x] Docker
+- [x] Docker Compose
 
 ### Done When
 
@@ -173,13 +173,13 @@ No major stack decision remains unresolved.
 
 ### Checklist
 
-- [ ] Create `frontend/`
-- [ ] Create `backend/`
-- [ ] Create `docs/`
-- [ ] Add root `README.md`
-- [ ] Add root `.gitignore`
-- [ ] Add `.env.example`
-- [ ] Add root `compose.yml`
+- [x] Create `frontend/`
+- [x] Create `backend/`
+- [x] Create `docs/`
+- [x] Add root `README.md`
+- [x] Add root `.gitignore`
+- [x] Add `.env.example`
+- [x] Add root `compose.yml`
 
 ### Target Structure
 
