@@ -663,11 +663,11 @@ feat(habits): implement habit management
 
 ### Checklist
 
-- [ ] Find record by habit/date
-- [ ] Upsert habit/date record
-- [ ] Query records by date range
-- [ ] Query ordered history
-- [ ] Scope access through owned habit
+- [x] Find record by habit/date
+- [x] Upsert habit/date record
+- [x] Query records by date range
+- [x] Query ordered history
+- [x] Scope access through owned habit
 
 ### Suggested Commit
 
