@@ -687,12 +687,12 @@ PUT /api/habits/:habitId/today
 
 ### Checklist
 
-- [ ] Verify habit ownership
-- [ ] Resolve today using `APP_TIMEZONE`
-- [ ] Validate status
-- [ ] Create first record
-- [ ] Update existing record
-- [ ] Prevent duplicate daily rows
+- [x] Verify habit ownership
+- [x] Resolve today using `APP_TIMEZONE`
+- [x] Validate status
+- [x] Create first record
+- [x] Update existing record
+- [x] Prevent duplicate daily rows
 
 ### Suggested Commit
 
