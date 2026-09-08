@@ -1163,11 +1163,11 @@ feat(frontend): add break habit tracking
 
 ### Checklist
 
-- [ ] Habit information
-- [ ] Daily state
+- [x] Habit information
+- [x] Daily state
 - [ ] Tracking history (P1; omit from the P0 detail view)
-- [ ] Statistics
-- [ ] Appropriate BUILD/BREAK labels
+- [x] Statistics
+- [x] Appropriate BUILD/BREAK labels
 
 ### Suggested Commit
 
