@@ -472,11 +472,11 @@ feat(backend): add centralized error handling
 
 ### Checklist
 
-- [ ] Add reusable Zod validation
-- [ ] Support body validation
-- [ ] Support params validation
-- [ ] Support query validation
-- [ ] Return consistent validation errors
+- [x] Add reusable Zod validation
+- [x] Support body validation
+- [x] Support params validation
+- [x] Support query validation
+- [x] Return consistent validation errors
 
 ### Suggested Commit
 
