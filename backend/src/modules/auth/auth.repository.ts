@@ -1,6 +1,13 @@
 import { prisma } from "../../database/prisma.js"
 
 export const authRepository = {
+  findUserById(userId: string) {
+    return prisma.user.findUnique({
+      where: { id: userId },
+      select: { id: true, email: true },
+    })
+  },
+
   findUserByEmail(email: string) {
     return prisma.user.findUnique({
       where: { email },

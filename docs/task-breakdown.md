@@ -584,8 +584,8 @@ POST /api/auth/logout
 
 ### Checklist
 
-- [ ] Return current user
-- [ ] Clear authentication cookie on logout
+- [x] Return current user
+- [x] Clear authentication cookie on logout
 
 ### Suggested Commit
 

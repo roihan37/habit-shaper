@@ -8,6 +8,16 @@ import type { LoginInput, RegisterInput } from "./auth.schema.js"
 
 
 export const authService = {
+  async getCurrentUser(userId: string) {
+    const user = await authRepository.findUserById(userId)
+
+    if (!user) {
+      throw authenticationRequiredError()
+    }
+
+    return user
+  },
+
   async register(input: RegisterInput) {
     const existingUser = await authRepository.findUserByEmail(input.email)
 
@@ -68,5 +78,13 @@ function invalidCredentialsError() {
     401,
     "INVALID_CREDENTIALS",
     "Invalid email or password",
+  )
+}
+
+function authenticationRequiredError() {
+  return new AppError(
+    401,
+    "AUTHENTICATION_REQUIRED",
+    "Authentication required",
   )
 }
