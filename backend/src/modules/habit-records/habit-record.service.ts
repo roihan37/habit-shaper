@@ -8,6 +8,7 @@ import {
 } from "../../utils/date.js"
 import { habitRecordRepository } from "./habit-record.repository.js"
 import type {
+  ListHabitRecordsQuery,
   TrackHistoricalDateInput,
   TrackTodayInput,
 } from "./habit-record.schema.js"
@@ -30,6 +31,29 @@ function toHabitRecordResponse(record: HabitRecord) {
 }
 
 export const habitRecordService = {
+  async listHistory(
+    userId: string,
+    habitId: string,
+    query: ListHabitRecordsQuery,
+  ) {
+    const habit = await habitRepository.findByIdAndUserId(habitId, userId)
+    if (!habit) throw habitNotFoundError()
+
+    const records =
+      query.from === undefined && query.to === undefined
+        ? await habitRecordRepository.findHistory(userId, habitId)
+        : await habitRecordRepository.findByDateRange(
+            userId,
+            habitId,
+            query.from === undefined
+              ? undefined
+              : parseCalendarDate(query.from),
+            query.to === undefined ? undefined : parseCalendarDate(query.to),
+          )
+
+    return records.map(toHabitRecordResponse)
+  },
+
   async trackToday(userId: string, habitId: string, input: TrackTodayInput) {
     const habit = await habitRepository.findByIdAndUserId(habitId, userId)
 

@@ -41,13 +41,16 @@ export const habitRecordRepository = {
   findByDateRange(
     userId: string,
     habitId: string,
-    startDate: Date,
-    endDate: Date,
+    startDate?: Date,
+    endDate?: Date,
   ) {
     return prisma.habitRecord.findMany({
       where: {
         habitId,
-        recordDate: { gte: startDate, lte: endDate },
+        recordDate: {
+          ...(startDate === undefined ? {} : { gte: startDate }),
+          ...(endDate === undefined ? {} : { lte: endDate }),
+        },
         habit: { userId },
       },
       orderBy: [{ recordDate: "asc" }, { id: "asc" }],

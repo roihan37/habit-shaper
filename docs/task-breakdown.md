@@ -743,11 +743,11 @@ GET /api/habits/:habitId/records
 
 ### Checklist
 
-- [ ] Support `from`
-- [ ] Support `to`
-- [ ] Validate date range
-- [ ] Return ordered records
-- [ ] Enforce ownership
+- [x] Support `from`
+- [x] Support `to`
+- [x] Validate date range
+- [x] Return ordered records
+- [x] Enforce ownership
 
 ### Suggested Commit
 
