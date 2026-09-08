@@ -58,15 +58,17 @@ export function useHabit(habitId: string) {
   })
 }
 
+export async function fetchHabitStats(habitId: string) {
+  const response = await apiRequest<HabitStats>(
+    `/api/habits/${habitId}/stats`,
+  )
+  return response?.data
+}
+
 export function useHabitStats(habitId: string, enabled: boolean) {
   return useQuery({
     queryKey: habitStatsQueryKey(habitId),
-    queryFn: async () => {
-      const response = await apiRequest<HabitStats>(
-        `/api/habits/${habitId}/stats`,
-      )
-      return response?.data
-    },
+    queryFn: () => fetchHabitStats(habitId),
     enabled,
   })
 }

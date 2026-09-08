@@ -1238,10 +1238,10 @@ feat(frontend): add goal edit and delete actions
 
 ### Checklist
 
-- [ ] Fetch habits
-- [ ] Fetch relevant statistics
-- [ ] Fetch goals if needed
-- [ ] Avoid unnecessary duplicate API requests
+- [x] Fetch habits
+- [x] Fetch relevant statistics
+- [x] Fetch goals if needed
+- [x] Avoid unnecessary duplicate API requests
 
 ### Suggested Commit
 
