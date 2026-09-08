@@ -1,21 +1,11 @@
 import bcrypt from "bcrypt"
+import jwt from "jsonwebtoken"
 
+import { env } from "../../config/env.js"
 import { AppError } from "../../utils/app-error.js"
 import { authRepository } from "./auth.repository.js"
-import type { RegisterInput } from "./auth.schema.js"
+import type { LoginInput, RegisterInput } from "./auth.schema.js"
 
-function isUniqueConstraintError(error: unknown): error is { code: "P2002" } {
-  return (
-    typeof error === "object" &&
-    error !== null &&
-    "code" in error &&
-    error.code === "P2002"
-  )
-}
-
-function emailAlreadyExistsError() {
-  return new AppError(409, "EMAIL_ALREADY_EXISTS", "Email already exists")
-}
 
 export const authService = {
   async register(input: RegisterInput) {
@@ -37,4 +27,46 @@ export const authService = {
       throw error
     }
   },
+
+  async login(input: LoginInput) {
+    const user = await authRepository.findUserByEmail(input.email)
+
+    if (!user || !(await bcrypt.compare(input.password, user.passwordHash))) {
+      throw invalidCredentialsError()
+    }
+
+    const token = jwt.sign({}, env.AUTH_SECRET, {
+      subject: user.id,
+      expiresIn: "7d",
+    })
+
+    return {
+      token,
+      user: {
+        id: user.id,
+        email: user.email,
+      },
+    }
+  },
+}
+
+function isUniqueConstraintError(error: unknown): error is { code: "P2002" } {
+  return (
+    typeof error === "object" &&
+    error !== null &&
+    "code" in error &&
+    error.code === "P2002"
+  )
+}
+
+function emailAlreadyExistsError() {
+  return new AppError(409, "EMAIL_ALREADY_EXISTS", "Email already exists")
+}
+
+function invalidCredentialsError() {
+  return new AppError(
+    401,
+    "INVALID_CREDENTIALS",
+    "Invalid email or password",
+  )
 }

@@ -532,20 +532,20 @@ POST /api/auth/login
 
 ### Checklist
 
-- [ ] Find normalized email
-- [ ] Compare password
-- [ ] Return generic invalid-credentials error
-- [ ] Generate JWT
-- [ ] Store JWT in HttpOnly cookie
-- [ ] Apply environment-specific cookie settings
+- [x] Find normalized email
+- [x] Compare password
+- [x] Return generic invalid-credentials error
+- [x] Generate JWT
+- [x] Store JWT in HttpOnly cookie
+- [x] Apply environment-specific cookie settings
 
 ### Tests
 
-- [ ] Successful login
-- [ ] Wrong password
-- [ ] Unknown email
-- [ ] Cookie issued on success
-- [ ] Password/JWT not exposed in JSON response
+- [x] Successful login
+- [x] Wrong password
+- [x] Unknown email
+- [x] Cookie issued on success
+- [x] Password/JWT not exposed in JSON response
 
 ### Suggested Commit
 
