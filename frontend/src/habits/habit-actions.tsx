@@ -184,7 +184,7 @@ export function HabitActions({ habit }: { habit: Habit }) {
           if (!updateMutation.isPending) setEditOpen(open)
         }}
       >
-        <DialogContent className="w-[calc(100%-2rem)] rounded-xl sm:max-w-lg">
+        <DialogContent className="max-h-[calc(100vh-2rem)] w-[calc(100%-2rem)] overflow-y-auto rounded-xl sm:max-w-lg">
           <DialogHeader>
             <DialogTitle>Edit habit</DialogTitle>
             <DialogDescription>
@@ -217,10 +217,19 @@ export function HabitActions({ habit }: { habit: Habit }) {
                 className="min-h-24 resize-y"
                 id={`habit-description-${habit.id}`}
                 aria-invalid={errors.description ? 'true' : 'false'}
+                aria-describedby={
+                  errors.description
+                    ? `habit-description-error-${habit.id}`
+                    : undefined
+                }
                 {...register('description')}
               />
               {errors.description && (
-                <p className="text-xs text-destructive" role="alert">
+                <p
+                  className="text-xs text-destructive"
+                  id={`habit-description-error-${habit.id}`}
+                  role="alert"
+                >
                   {errors.description.message}
                 </p>
               )}

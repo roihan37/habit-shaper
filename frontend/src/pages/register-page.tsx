@@ -4,6 +4,7 @@ import { Eye, EyeOff, LoaderCircle, Sprout } from 'lucide-react'
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { Link, useNavigate } from 'react-router-dom'
+import { toast } from 'sonner'
 
 import { registerSchema, type RegisterInput } from '../auth/register-schema'
 import { Alert, AlertDescription } from '../components/ui/alert'
@@ -60,9 +61,9 @@ export function RegisterPage() {
 
     try {
       await registerMutation.mutateAsync(input)
+      toast.success('Account created successfully. You can now log in.')
       navigate('/login', { replace: true })
     } catch (error) {
-      console.log(error)
       if (error instanceof ApiError) {
         if (error.code === 'EMAIL_ALREADY_EXISTS') {
           setError('email', {

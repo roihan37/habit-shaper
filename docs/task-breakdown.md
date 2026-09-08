@@ -1396,10 +1396,10 @@ test: add core backend integration tests
 
 ### P1 Extended Testing
 
-- [ ] Historical tracking integration tests
-- [ ] Tracking-history endpoint tests
-- [ ] Historical correction tests
-- [ ] Extended backend/API integration coverage
+- [x] Historical tracking integration tests
+- [x] Tracking-history endpoint tests
+- [x] Historical correction tests
+- [x] Extended backend/API integration coverage
 
 ---
 
@@ -1409,11 +1409,11 @@ test: add core backend integration tests
 
 Every async screen/action should handle:
 
-- [ ] Loading
-- [ ] Empty
-- [ ] Error
-- [ ] Success feedback
-- [ ] Disabled submit while pending
+- [x] Loading
+- [x] Empty
+- [x] Error
+- [x] Success feedback
+- [x] Disabled submit while pending
 
 ---
 
@@ -1421,12 +1421,12 @@ Every async screen/action should handle:
 
 ### Checklist
 
-- [ ] Desktop
-- [ ] Tablet
-- [ ] Mobile-width browser
-- [ ] No overflow
-- [ ] Forms remain usable
-- [ ] Actions remain visible
+- [x] Desktop
+- [x] Tablet
+- [x] Mobile-width browser
+- [x] No overflow
+- [x] Forms remain usable
+- [x] Actions remain visible
 
 ---
 
@@ -1434,11 +1434,11 @@ Every async screen/action should handle:
 
 ### Checklist
 
-- [ ] Form labels
-- [ ] Button labels
-- [ ] Keyboard-accessible controls
-- [ ] Dialog focus behavior
-- [ ] Error messages associated with inputs
+- [x] Form labels
+- [x] Button labels
+- [x] Keyboard-accessible controls
+- [x] Dialog focus behavior
+- [x] Error messages associated with inputs
 
 ### Suggested Commit
 
