@@ -1183,10 +1183,10 @@ feat(frontend): build habit detail page
 
 ### Checklist
 
-- [ ] List goals
-- [ ] Show linked habit
-- [ ] Loading state
-- [ ] Empty state
+- [x] List goals
+- [x] Show linked habit
+- [x] Loading state
+- [x] Empty state
 
 ### Suggested Commit
 

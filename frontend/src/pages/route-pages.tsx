@@ -12,10 +12,6 @@ export function DashboardPage() {
   return <Page title="Dashboard" />
 }
 
-export function GoalsPage() {
-  return <Page title="Goals" />
-}
-
 export function NotFoundPage() {
   return (
     <main>
