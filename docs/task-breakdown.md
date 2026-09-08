@@ -1255,23 +1255,23 @@ feat(frontend): integrate dashboard data
 
 ### BUILD Card
 
-- [ ] Habit name
-- [ ] Today's status
-- [ ] Current streak
-- [ ] Weekly completion
+- [x] Habit name
+- [x] Today's status
+- [x] Current streak
+- [x] Weekly completion
 
 ### BREAK Card
 
-- [ ] Habit name
-- [ ] Today's clean/relapse status
-- [ ] Current clean streak
+- [x] Habit name
+- [x] Today's clean/relapse status
+- [x] Current clean streak
 
 ### General
 
-- [ ] Responsive layout
-- [ ] Clean design
-- [ ] Clear action hierarchy
-- [ ] Useful empty state
+- [x] Responsive layout
+- [x] Clean design
+- [x] Clear action hierarchy
+- [x] Useful empty state
 
 ### Suggested Commit
 

@@ -73,6 +73,13 @@ export function useHabitStats(habitId: string, enabled: boolean) {
   })
 }
 
+export async function fetchTodayHabitRecord(habitId: string, date: string) {
+  const response = await apiRequest<HabitRecord[]>(
+    `/api/habits/${habitId}/records?from=${date}&to=${date}`,
+  )
+  return response?.data[0] ?? null
+}
+
 export function useTodayHabitRecord(
   habitId: string,
   date: string,
@@ -80,12 +87,7 @@ export function useTodayHabitRecord(
 ) {
   return useQuery({
     queryKey: habitTodayQueryKey(habitId, date),
-    queryFn: async () => {
-      const response = await apiRequest<HabitRecord[]>(
-        `/api/habits/${habitId}/records?from=${date}&to=${date}`,
-      )
-      return response?.data[0] ?? null
-    },
+    queryFn: () => fetchTodayHabitRecord(habitId, date),
     enabled,
   })
 }
