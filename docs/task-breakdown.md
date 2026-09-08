@@ -967,11 +967,11 @@ feat(goals): implement goal management
 
 ### Checklist
 
-- [ ] React Router
-- [ ] TanStack Query provider
+- [x] React Router
+- [x] TanStack Query provider
 - [ ] Global error boundary if used
-- [ ] API client
-- [ ] Cookie credentials enabled
+- [x] API client
+- [x] Cookie credentials enabled
 
 ### Suggested Commit
 
