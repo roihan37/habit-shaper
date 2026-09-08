@@ -996,10 +996,10 @@ feat(frontend): configure app providers and api client
 
 ### Checklist
 
-- [ ] Public routes
-- [ ] Protected routes
-- [ ] Not-found route
-- [ ] Authentication loading state
+- [x] Public routes
+- [x] Protected routes
+- [x] Not-found route
+- [x] Authentication loading state
 
 ### Suggested Commit
 

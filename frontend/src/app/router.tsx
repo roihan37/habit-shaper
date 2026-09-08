@@ -1,10 +1,53 @@
 import { createBrowserRouter } from 'react-router-dom'
 
 import App from '../App'
+import { ProtectedRoute } from '../auth/protected-route'
+import {
+  DashboardPage,
+  GoalsPage,
+  HabitDetailPage,
+  HabitsPage,
+  LoginPage,
+  NotFoundPage,
+  RegisterPage,
+} from '../pages/route-pages'
 
 export const router = createBrowserRouter([
   {
     path: '/',
     element: <App />,
+  },
+  {
+    path: '/login',
+    element: <LoginPage />,
+  },
+  {
+    path: '/register',
+    element: <RegisterPage />,
+  },
+  {
+    element: <ProtectedRoute />,
+    children: [
+      {
+        path: '/dashboard',
+        element: <DashboardPage />,
+      },
+      {
+        path: '/habits',
+        element: <HabitsPage />,
+      },
+      {
+        path: '/habits/:habitId',
+        element: <HabitDetailPage />,
+      },
+      {
+        path: '/goals',
+        element: <GoalsPage />,
+      },
+    ],
+  },
+  {
+    path: '*',
+    element: <NotFoundPage />,
   },
 ])
