@@ -498,21 +498,21 @@ POST /api/auth/register
 
 ### Checklist
 
-- [ ] Validate email
-- [ ] Normalize email
-- [ ] Enforce the API password policy: 8-72 characters with no character-class requirement
-- [ ] Reject duplicate email
-- [ ] Hash password using bcrypt
-- [ ] Persist user
-- [ ] Never return password hash
+- [x] Validate email
+- [x] Normalize email
+- [x] Enforce the API password policy: 8-72 characters with no character-class requirement
+- [x] Reject duplicate email
+- [x] Hash password using bcrypt
+- [x] Persist user
+- [x] Never return password hash
 
 ### Tests
 
-- [ ] Valid registration
-- [ ] Invalid email
-- [ ] Invalid password
-- [ ] Duplicate email
-- [ ] Password stored as hash
+- [x] Valid registration
+- [x] Invalid email
+- [x] Invalid password
+- [x] Duplicate email
+- [x] Password stored as hash
 
 ### Suggested Commit
 

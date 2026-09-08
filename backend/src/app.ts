@@ -2,6 +2,8 @@ import express from "express"
 import cors from "cors"
 import cookieParser from "cookie-parser"
 import { env } from "./config/env.js"
+import { errorHandler } from "./middleware/error-handler.js"
+import { authRouter } from "./modules/auth/auth.routes.js"
 
 export const app = express()
 
@@ -20,3 +22,7 @@ app.get("/health", (_req, res) => {
     status: "ok",
   })
 })
+
+app.use("/api/auth", authRouter)
+
+app.use(errorHandler)
