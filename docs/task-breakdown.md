@@ -938,20 +938,20 @@ DELETE /api/goals/:goalId
 
 ### Checklist
 
-- [ ] Create linked goal
-- [ ] Verify habit exists
-- [ ] Verify habit belongs to current user
-- [ ] Update linked habit safely
-- [ ] Delete goal
-- [ ] List only current user's goals
-- [ ] Prevent cross-user access
+- [x] Create linked goal
+- [x] Verify habit exists
+- [x] Verify habit belongs to current user
+- [x] Update linked habit safely
+- [x] Delete goal
+- [x] List only current user's goals
+- [x] Prevent cross-user access
 
 ### Tests
 
-- [ ] Valid linked goal
-- [ ] Foreign user's habit rejected
-- [ ] Foreign user's goal inaccessible
-- [ ] Update to another owned habit succeeds
+- [x] Valid linked goal
+- [x] Foreign user's habit rejected
+- [x] Foreign user's goal inaccessible
+- [x] Update to another owned habit succeeds
 
 ### Suggested Commit
 

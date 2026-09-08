@@ -4,6 +4,7 @@ import cookieParser from "cookie-parser"
 import { env } from "./config/env.js"
 import { errorHandler } from "./middleware/error-handler.js"
 import { authRouter } from "./modules/auth/auth.routes.js"
+import { goalRouter } from "./modules/goals/goal.routes.js"
 import { habitRecordRouter } from "./modules/habit-records/habit-record.routes.js"
 import { habitRouter } from "./modules/habits/habit.routes.js"
 
@@ -26,6 +27,7 @@ app.get("/health", (_req, res) => {
 })
 
 app.use("/api/auth", authRouter)
+app.use("/api/goals", goalRouter)
 app.use("/api/habits", habitRecordRouter)
 app.use("/api/habits", habitRouter)
 

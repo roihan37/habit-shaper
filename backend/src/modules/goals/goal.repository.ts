@@ -13,9 +13,12 @@ export type UpdateGoalData = {
 }
 
 export const goalRepository = {
-  findAllByUserId(userId: string) {
+  findAllByUserId(userId: string, habitId?: string) {
     return prisma.goal.findMany({
-      where: { userId },
+      where: {
+        userId,
+        ...(habitId === undefined ? {} : { habitId }),
+      },
       orderBy: [{ createdAt: "desc" }, { id: "desc" }],
     })
   },
