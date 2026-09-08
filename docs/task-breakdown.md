@@ -601,12 +601,12 @@ feat(auth): add current-user and logout endpoints
 
 ### Checklist
 
-- [ ] Find all habits by authenticated user
-- [ ] Filter habits by type
-- [ ] Find habit by ID and owner
-- [ ] Create habit
-- [ ] Update habit
-- [ ] Delete habit
+- [x] Find all habits by authenticated user
+- [x] Filter habits by type
+- [x] Find habit by ID and owner
+- [x] Create habit
+- [x] Update habit
+- [x] Delete habit
 
 ### Suggested Commit
 
