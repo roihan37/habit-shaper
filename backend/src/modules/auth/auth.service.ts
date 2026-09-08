@@ -20,7 +20,7 @@ export const authService = {
 
   async register(input: RegisterInput) {
     const existingUser = await authRepository.findUserByEmail(input.email)
-
+    
     if (existingUser) {
       throw emailAlreadyExistsError()
     }
@@ -33,7 +33,7 @@ export const authService = {
       if (isUniqueConstraintError(error)) {
         throw emailAlreadyExistsError()
       }
-
+      
       throw error
     }
   },

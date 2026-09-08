@@ -62,6 +62,7 @@ export function RegisterPage() {
       await registerMutation.mutateAsync(input)
       navigate('/login', { replace: true })
     } catch (error) {
+      console.log(error)
       if (error instanceof ApiError) {
         if (error.code === 'EMAIL_ALREADY_EXISTS') {
           setError('email', {

@@ -34,7 +34,7 @@ export function getAuthCookieClearOptions(
 
 export const register = async (req: Request, res: Response) => {
   const user = await authService.register(req.body)
-
+  
   return res.status(201).json({
     data: user,
   })
@@ -42,7 +42,7 @@ export const register = async (req: Request, res: Response) => {
 
 export const login = async (req: Request, res: Response) => {
   const { token, user } = await authService.login(req.body)
-
+  
   res.cookie(AUTH_COOKIE_NAME, token, getAuthCookieOptions())
   return res.status(200).json({ data: user })
 }
