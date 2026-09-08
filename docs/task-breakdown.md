@@ -715,12 +715,12 @@ PUT /api/habits/:habitId/records/:date
 
 ### Checklist
 
-- [ ] Validate `YYYY-MM-DD`
-- [ ] Reject dates before the habit creation date in `APP_TIMEZONE`
-- [ ] Reject future dates
-- [ ] Verify habit ownership
-- [ ] Upsert historical record
-- [ ] Return normalized date format
+- [x] Validate `YYYY-MM-DD`
+- [x] Reject dates before the habit creation date in `APP_TIMEZONE`
+- [x] Reject future dates
+- [x] Verify habit ownership
+- [x] Upsert historical record
+- [x] Return normalized date format
 
 ### Suggested Commit
 
