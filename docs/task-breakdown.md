@@ -244,20 +244,20 @@ chore(frontend): initialize react application
 
 ### Checklist
 
-- [ ] Initialize Node.js TypeScript project
-- [ ] Install Express
-- [ ] Install Zod
-- [ ] Install Prisma
-- [ ] Install Prisma Client
-- [ ] Install bcrypt
-- [ ] Install JWT library
-- [ ] Add cookie parser
-- [ ] Configure CORS
-- [ ] Configure TypeScript
-- [ ] Configure ESLint
-- [ ] Configure Vitest
-- [ ] Configure Supertest
-- [ ] Add basic health endpoint
+- [x] Initialize Node.js TypeScript project
+- [x] Install Express
+- [x] Install Zod
+- [x] Install Prisma
+- [x] Install Prisma Client
+- [x] Install bcrypt
+- [x] Install JWT library
+- [x] Add cookie parser
+- [x] Configure CORS
+- [x] Configure TypeScript
+- [x] Configure ESLint
+- [x] Configure Vitest
+- [x] Configure Supertest
+- [x] Add basic health endpoint
 
 ### Health Endpoint
 
