@@ -332,10 +332,10 @@ chore(backend): add docker configuration
 
 ### Checklist
 
-- [ ] Create frontend Dockerfile
-- [ ] Configure frontend API URL
-- [ ] Ensure frontend can reach backend
-- [ ] Verify frontend starts through Docker Compose
+- [x] Create frontend Dockerfile
+- [x] Configure frontend API URL
+- [x] Ensure frontend can reach backend
+- [x] Verify frontend starts through Docker Compose
 
 ### Suggested Commit
 
