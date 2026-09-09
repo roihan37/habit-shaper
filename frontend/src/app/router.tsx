@@ -1,6 +1,5 @@
 import { createBrowserRouter } from 'react-router-dom'
 
-import App from '../App'
 import { ProtectedRoute } from '../auth/protected-route'
 import { DashboardPage } from '../pages/dashboard-page'
 import { NotFoundPage } from '../pages/route-pages'
@@ -9,11 +8,12 @@ import { HabitDetailPage } from '../pages/habit-detail-page'
 import { HabitsPage } from '../pages/habits-page'
 import { LoginPage } from '../pages/login-page'
 import { RegisterPage } from '../pages/register-page'
+import { LandingPage } from '@/pages/landing-page'
 
 export const router = createBrowserRouter([
   {
     path: '/',
-    element: <App />,
+    element: <LandingPage />,
   },
   {
     path: '/login',
