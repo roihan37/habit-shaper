@@ -27,6 +27,7 @@ import {
 import { Button } from '../components/ui/button'
 import { buttonVariants } from '../components/ui/button-variants'
 import { Card, CardContent } from '../components/ui/card'
+import { HabitHistory } from '../habits/habit-history'
 import { Progress } from '../components/ui/progress'
 import { Skeleton } from '../components/ui/skeleton'
 import {
@@ -355,6 +356,8 @@ export function HabitDetailPage() {
           )
         )}
       </section>
+
+      <HabitHistory habit={habit} />
     </main>
   )
 }

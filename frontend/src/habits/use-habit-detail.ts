@@ -40,6 +40,11 @@ export const habitRecordsQueryKey = (habitId: string) =>
   ['habits', habitId, 'records'] as const
 export const habitTodayQueryKey = (habitId: string, date: string) =>
   [...habitRecordsQueryKey(habitId), 'today', date] as const
+export const habitRecordsRangeQueryKey = (
+  habitId: string,
+  from: string,
+  to: string,
+) => [...habitRecordsQueryKey(habitId), 'range', from, to] as const
 
 export function getLocalCalendarDate(date = new Date()) {
   const year = date.getFullYear()
@@ -69,6 +74,31 @@ export function useHabitStats(habitId: string, enabled: boolean) {
   return useQuery({
     queryKey: habitStatsQueryKey(habitId),
     queryFn: () => fetchHabitStats(habitId),
+    enabled,
+  })
+}
+
+export async function fetchHabitRecords(
+  habitId: string,
+  from: string,
+  to: string,
+) {
+  const query = new URLSearchParams({ from, to })
+  const response = await apiRequest<HabitRecord[]>(
+    `/api/habits/${habitId}/records?${query.toString()}`,
+  )
+  return response?.data ?? []
+}
+
+export function useHabitRecords(
+  habitId: string,
+  from: string,
+  to: string,
+  enabled: boolean,
+) {
+  return useQuery({
+    queryKey: habitRecordsRangeQueryKey(habitId, from, to),
+    queryFn: () => fetchHabitRecords(habitId, from, to),
     enabled,
   })
 }

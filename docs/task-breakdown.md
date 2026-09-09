@@ -1165,7 +1165,7 @@ feat(frontend): add break habit tracking
 
 - [x] Habit information
 - [x] Daily state
-- [ ] Tracking history (P1; omit from the P0 detail view)
+- [x] Tracking history (P1)
 - [x] Statistics
 - [x] Appropriate BUILD/BREAK labels
 
@@ -1731,7 +1731,7 @@ P1 - Strong Submission
 - [x] Better error states
 - [x] Historical correction API
 - [x] Tracking history API
-- [ ] Historical correction UI
+- [x] Historical correction UI
 - [x] Responsive polish
 - [x] Accessibility basics
 - [x] Strong documentation
