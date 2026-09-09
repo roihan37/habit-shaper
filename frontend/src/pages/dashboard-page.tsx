@@ -46,7 +46,10 @@ function DashboardHabitCard({ habit, stats, todayStatus, statsError, todayError 
               <div>
                 <div className="mb-2 flex items-center justify-between gap-3"><span className="text-sm text-muted-foreground">Weekly completion</span><span className="font-semibold">{stats.weekly.completionRate}%</span></div>
                 <Progress value={stats.weekly.completionRate} aria-label={`${stats.weekly.completionRate}% weekly completion for ${habit.name}`} />
-                <p className="mt-2 text-xs text-muted-foreground">{stats.weekly.completedDays} of {stats.weekly.eligibleDays} eligible days</p>
+                <p className="mt-2 text-xs text-muted-foreground">
+                  {stats.weekly.completedDays} completed · {stats.weekly.missedDays}{' '}
+                  missed · {stats.weekly.eligibleDays} eligible
+                </p>
               </div>
             </>
           ) : stats?.type === 'BREAK' && !isBuild ? (

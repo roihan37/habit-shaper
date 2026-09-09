@@ -60,9 +60,9 @@ Documentation
 Final Review
 ```
 
-Historical tracking API, tracking-history API, and historical-correction UI
-are deferred P1 enhancements performed only after the complete P0 workflow is
-working and verified.
+Historical tracking and tracking-history APIs are implemented P1 enhancements.
+The historical-correction UI remains deferred until after the complete P0
+workflow is working and verified.
 
 Priority rule:
 
@@ -1565,53 +1565,53 @@ docs: finalize project documentation
 
 ### Authentication
 
-- [ ] Register
-- [ ] Login
-- [ ] Current user
-- [ ] Logout
+- [x] Register
+- [x] Login
+- [x] Current user
+- [x] Logout
 
 ### Habit Building
 
-- [ ] Create
-- [ ] Read
-- [ ] Update
-- [ ] Delete
-- [ ] Track daily completion
-- [ ] Current streak
-- [ ] Weekly completion rate
-- [ ] Missed days
+- [x] Create
+- [x] Read
+- [x] Update
+- [x] Delete
+- [x] Track daily completion
+- [x] Current streak
+- [x] Weekly completion rate
+- [x] Missed days
 
 ### Habit Breaking
 
-- [ ] Create
-- [ ] Track clean day
-- [ ] Track relapse
-- [ ] Clean streak resets correctly
+- [x] Create
+- [x] Track clean day
+- [x] Track relapse
+- [x] Clean streak resets correctly
 
 ### Goals
 
-- [ ] Create
-- [ ] Edit
-- [ ] Delete
-- [ ] Link to BUILD habit
-- [ ] Link to BREAK habit
+- [x] Create
+- [x] Edit
+- [x] Delete
+- [x] Link to BUILD habit
+- [x] Link to BREAK habit
 
 ---
 
 ## Technical Checklist
 
-- [ ] TypeScript passes
-- [ ] Lint passes
-- [ ] Tests pass
-- [ ] Frontend production build passes
-- [ ] Backend production build passes
-- [ ] Docker clean boot passes
-- [ ] Migrations run automatically
-- [ ] No secrets committed
-- [ ] `.env.example` complete
-- [ ] `node_modules` excluded
-- [ ] Build artifacts excluded
-- [ ] Git history is meaningful
+- [x] TypeScript passes
+- [x] Lint passes
+- [x] Tests pass
+- [x] Frontend production build passes
+- [x] Backend production build passes
+- [x] Docker clean boot passes
+- [x] Migrations run automatically
+- [x] No secrets committed
+- [x] `.env.example` complete
+- [x] `node_modules` excluded
+- [x] Build artifacts excluded
+- [x] Git history is meaningful
 
 ---
 
@@ -1703,38 +1703,38 @@ If time becomes limited, complete work in this order:
 P0 - Must Have
 ```
 
-- [ ] Docker Compose
-- [ ] MySQL + automatic migrations
-- [ ] Register
-- [ ] Login
-- [ ] Logout
-- [ ] Habit CRUD
-- [ ] Build daily tracking
-- [ ] Build streak
-- [ ] Weekly completion
-- [ ] Missed days
-- [ ] Break habit clean tracking
-- [ ] Relapse
-- [ ] Clean streak
-- [ ] Goal CRUD
-- [ ] Basic usable React UI
-- [ ] Ownership/security
-- [ ] Critical automated tests
-- [ ] README
-- [ ] Fresh Docker test
+- [x] Docker Compose
+- [x] MySQL + automatic migrations
+- [x] Register
+- [x] Login
+- [x] Logout
+- [x] Habit CRUD
+- [x] Build daily tracking
+- [x] Build streak
+- [x] Weekly completion
+- [x] Missed days
+- [x] Break habit clean tracking
+- [x] Relapse
+- [x] Clean streak
+- [x] Goal CRUD
+- [x] Basic usable React UI
+- [x] Ownership/security
+- [x] Critical automated tests
+- [x] README
+- [x] Fresh Docker test
 
 ```text
 P1 - Strong Submission
 ```
 
-- [ ] Extended backend/API integration coverage
-- [ ] Better error states
-- [ ] Historical correction API
-- [ ] Tracking history API
+- [x] Extended backend/API integration coverage
+- [x] Better error states
+- [x] Historical correction API
+- [x] Tracking history API
 - [ ] Historical correction UI
-- [ ] Responsive polish
-- [ ] Accessibility basics
-- [ ] Strong documentation
+- [x] Responsive polish
+- [x] Accessibility basics
+- [x] Strong documentation
 
 ```text
 P2 - Optional

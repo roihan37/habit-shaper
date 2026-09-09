@@ -90,7 +90,7 @@ Relevant errors: `VALIDATION_ERROR` (400), `INVALID_CREDENTIALS` (401), `AUTHENT
 | `PUT /api/habits/:habitId/records/:date` | Yes | `date` as `YYYY-MM-DD`; same status body | `200`, `data: HabitRecord` |
 | `GET /api/habits/:habitId/records` | Yes | Optional `from`/`to` query dates | `200`, `data: HabitRecord[]` |
 
-The history response is `HabitRecord[]`, ordered by `recordDate` descending. `from` and `to` are inclusive; when both exist, `to` must not precede `from`. Tracking uses upsert, so repeated writes for one habit/date update the existing record.
+The history response is `HabitRecord[]`, ordered by `recordDate` ascending. `from` and `to` are inclusive; when both exist, `to` must not precede `from`. Tracking uses upsert, so repeated writes for one habit/date update the existing record.
 
 Historical tracking rejects dates before the habit's creation date with `INVALID_RECORD_DATE` (400) and future dates with `FUTURE_DATE_NOT_ALLOWED` (400). Missing or foreign habits return `HABIT_NOT_FOUND` (404).
 
