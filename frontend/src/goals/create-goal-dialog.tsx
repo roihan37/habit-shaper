@@ -117,7 +117,10 @@ export function CreateGoalDialog({ habits }: { habits: Habit[] }) {
   return (
     <Dialog open={open} onOpenChange={handleOpenChange}>
       <DialogTrigger asChild>
-        <Button><Plus aria-hidden="true" />Create goal</Button>
+        <Button className="w-full sm:w-auto">
+  <Plus aria-hidden="true" />
+  Create goal
+</Button>
       </DialogTrigger>
       <DialogContent className="max-h-[calc(100vh-2rem)] w-[calc(100%-2rem)] overflow-y-auto rounded-xl sm:max-w-lg">
         <DialogHeader>

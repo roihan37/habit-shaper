@@ -86,9 +86,12 @@ function DetailSkeleton() {
         <Skeleton className="h-5 w-96 max-w-full" />
       </div>
       <Skeleton className="h-48 w-full rounded-xl" />
-      <div className="grid gap-4 md:grid-cols-3">
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {[0, 1, 2].map((item) => (
-          <Skeleton key={item} className="h-36 rounded-xl" />
+          <Skeleton
+            key={item}
+            className="h-36 rounded-xl"
+          />
         ))}
       </div>
     </main>
@@ -180,19 +183,57 @@ export function HabitDetailPage() {
             )}
           </div>
           <div className="flex w-full flex-col gap-2 sm:w-auto sm:flex-row">
-            <Button disabled={trackMutation.isPending || todayQuery.isPending} onClick={() => trackMutation.mutate('SUCCESS')}>
-              {trackMutation.isPending && <LoaderCircle className="animate-spin" aria-hidden="true" />}
-              {trackMutation.isPending ? 'Saving…' : isBuild ? 'Completed today' : 'Still clean'}
+            <Button
+              disabled={
+                trackMutation.isPending ||
+                todayQuery.isPending ||
+                status === 'SUCCESS'
+              }
+              onClick={() => trackMutation.mutate('SUCCESS')}
+            >
+              {trackMutation.isPending && (
+                <LoaderCircle className="animate-spin" aria-hidden="true" />
+              )}
+
+              {trackMutation.isPending
+                ? 'Saving…'
+                : isBuild
+                  ? status === 'SUCCESS'
+                    ? 'Completed'
+                    : 'Completed today'
+                  : status === 'SUCCESS'
+                    ? 'Still clean'
+                    : 'Still clean today'}
             </Button>
             {isBuild ? (
-              <Button variant="outline" disabled={trackMutation.isPending || todayQuery.isPending} onClick={() => trackMutation.mutate('FAILURE')}>
-                Mark as missed
+              <Button
+                variant="outline"
+                disabled={
+                  trackMutation.isPending ||
+                  todayQuery.isPending ||
+                  status === 'FAILURE'
+                }
+                onClick={() => trackMutation.mutate('FAILURE')}
+              >
+                {status === 'FAILURE'
+                  ? 'Marked as missed'
+                  : 'Mark as missed'}
               </Button>
             ) : (
               <AlertDialog>
                 <AlertDialogTrigger asChild>
-                  <Button variant="outline" disabled={trackMutation.isPending || todayQuery.isPending} className="text-destructive hover:text-destructive">
-                    Relapsed
+                  <Button
+                    variant="outline"
+                    disabled={
+                      trackMutation.isPending ||
+                      todayQuery.isPending ||
+                      status === 'FAILURE'
+                    }
+                    className="text-destructive hover:text-destructive"
+                  >
+                    {status === 'FAILURE'
+                      ? 'Relapsed today'
+                      : 'Relapsed'}
                   </Button>
                 </AlertDialogTrigger>
                 <AlertDialogContent>
@@ -214,7 +255,7 @@ export function HabitDetailPage() {
       <section aria-labelledby="statistics-heading">
         <h2 className="mb-4 text-lg font-semibold" id="statistics-heading">Statistics</h2>
         {statsQuery.isPending || todayQuery.isPending ? (
-          <div className="grid gap-4 md:grid-cols-3">
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {[0, 1, 2].map((item) => <Skeleton key={item} className="h-36 rounded-xl" />)}
           </div>
         ) : statsUnavailable || !stats || stats.type !== habit.type ? (
@@ -225,14 +266,91 @@ export function HabitDetailPage() {
           </Card>
         ) : (
           stats.type === 'BREAK' ? (
-            <div className="grid gap-4 md:grid-cols-3">
-              <Card><CardContent className="p-5"><Flame className="mb-5 size-5 text-primary" aria-hidden="true" /><p className="text-sm text-muted-foreground">Clean streak</p><p className="mt-1 text-2xl font-semibold">{stats.currentCleanStreak} {stats.currentCleanStreak === 1 ? 'day' : 'days'}</p></CardContent></Card>
+            <div className="grid gap-4 sm:max-w-sm">
+              <Card>
+                <CardContent className="p-5">
+                  <Flame
+                    className="mb-5 size-5 text-primary"
+                    aria-hidden="true"
+                  />
+
+                  <p className="text-sm text-muted-foreground">
+                    Clean streak
+                  </p>
+
+                  <p className="mt-1 text-2xl font-semibold">
+                    {stats.currentCleanStreak}{' '}
+                    {stats.currentCleanStreak === 1 ? 'day' : 'days'}
+                  </p>
+                </CardContent>
+              </Card>
             </div>
           ) : (
-            <div className="grid gap-4 md:grid-cols-3">
-              <Card><CardContent className="p-5"><Flame className="mb-5 size-5 text-primary" aria-hidden="true" /><p className="text-sm text-muted-foreground">Current streak</p><p className="mt-1 text-2xl font-semibold">{stats.currentStreak} {stats.currentStreak === 1 ? 'day' : 'days'}</p></CardContent></Card>
-              <Card><CardContent className="p-5"><CalendarCheck2 className="mb-5 size-5 text-primary" aria-hidden="true" /><div className="flex items-end justify-between gap-3"><p className="text-sm text-muted-foreground">Weekly completion</p><p className="text-2xl font-semibold">{stats.weekly.completionRate}%</p></div><Progress className="mt-4" value={stats.weekly.completionRate} aria-label={`${stats.weekly.completionRate}% weekly completion`} /><p className="mt-3 text-xs text-muted-foreground">{stats.weekly.completedDays} of {stats.weekly.eligibleDays} eligible days completed</p></CardContent></Card>
-              <Card><CardContent className="p-5"><CalendarX2 className="mb-5 size-5 text-amber-700" aria-hidden="true" /><p className="text-sm text-muted-foreground">Missed days</p><p className="mt-1 text-2xl font-semibold">{stats.weekly.missedDays}</p></CardContent></Card>
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              <Card>
+                <CardContent className="p-5">
+                  <Flame
+                    className="mb-5 size-5 text-primary"
+                    aria-hidden="true"
+                  />
+
+                  <p className="text-sm text-muted-foreground">
+                    Current streak
+                  </p>
+
+                  <p className="mt-1 text-2xl font-semibold">
+                    {stats.currentStreak}{' '}
+                    {stats.currentStreak === 1 ? 'day' : 'days'}
+                  </p>
+                </CardContent>
+              </Card>
+
+              <Card>
+                <CardContent className="p-5">
+                  <CalendarCheck2
+                    className="mb-5 size-5 text-primary"
+                    aria-hidden="true"
+                  />
+
+                  <div className="flex items-end justify-between gap-3">
+                    <p className="text-sm text-muted-foreground">
+                      Weekly completion
+                    </p>
+
+                    <p className="text-2xl font-semibold">
+                      {stats.weekly.completionRate}%
+                    </p>
+                  </div>
+
+                  <Progress
+                    className="mt-4"
+                    value={stats.weekly.completionRate}
+                    aria-label={`${stats.weekly.completionRate}% weekly completion`}
+                  />
+
+                  <p className="mt-3 text-xs text-muted-foreground">
+                    {stats.weekly.completedDays} of{' '}
+                    {stats.weekly.eligibleDays} eligible days completed
+                  </p>
+                </CardContent>
+              </Card>
+
+              <Card>
+                <CardContent className="p-5">
+                  <CalendarX2
+                    className="mb-5 size-5 text-amber-700"
+                    aria-hidden="true"
+                  />
+
+                  <p className="text-sm text-muted-foreground">
+                    Missed days
+                  </p>
+
+                  <p className="mt-1 text-2xl font-semibold">
+                    {stats.weekly.missedDays}
+                  </p>
+                </CardContent>
+              </Card>
             </div>
           )
         )}
