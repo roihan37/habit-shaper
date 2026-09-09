@@ -143,22 +143,22 @@ export function CreateGoalDialog({ habits }: { habits: Habit[] }) {
                   disabled={habits.length === 0}
                 >
                   <SelectTrigger
-  id="goal-habit"
-  aria-invalid={errors.habitId ? 'true' : 'false'}
-  aria-describedby={
-    errors.habitId ? 'goal-habit-error' : undefined
-  }
->
-  <SelectValue placeholder="Select a habit" />
-</SelectTrigger>
+                    id="goal-habit"
+                    aria-invalid={errors.habitId ? 'true' : 'false'}
+                    aria-describedby={
+                      errors.habitId ? 'goal-habit-error' : undefined
+                    }
+                  >
+                    <SelectValue placeholder="Select a habit" />
+                  </SelectTrigger>
 
                   <SelectContent position="popper" sideOffset={6}>
-  {habits.map((habit) => (
-    <SelectItem key={habit.id} value={habit.id}>
-      {habit.name} · {habit.type === 'BUILD' ? 'Build' : 'Break'}
-    </SelectItem>
-  ))}
-</SelectContent>
+                    {habits.map((habit) => (
+                      <SelectItem key={habit.id} value={habit.id}>
+                        {habit.name} · {habit.type === 'BUILD' ? 'Build' : 'Break'}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
                 </Select>
               )}
             />

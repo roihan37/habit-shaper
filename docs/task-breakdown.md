@@ -1461,16 +1461,16 @@ docker compose up --build
 
 ### Verify
 
-- [ ] MySQL starts
-- [ ] MySQL healthcheck passes
-- [ ] Migrations run automatically
-- [ ] Backend starts
-- [ ] Frontend starts
-- [ ] Registration works
-- [ ] Login works
-- [ ] Habit creation works
-- [ ] Tracking works
-- [ ] Goal creation works
+- [x] MySQL starts
+- [x] MySQL healthcheck passes
+- [x] Migrations run automatically
+- [x] Backend starts
+- [x] Frontend starts
+- [x] Registration works
+- [x] Login works
+- [x] Habit creation works
+- [x] Tracking works
+- [x] Goal creation works
 
 No manual:
 
