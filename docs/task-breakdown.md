@@ -1496,15 +1496,15 @@ fix(docker): ensure clean one-command startup
 
 ### Checklist
 
-- [ ] Project overview
-- [ ] Features
-- [ ] Tech stack
-- [ ] Prerequisites
-- [ ] Exact startup commands
-- [ ] Environment setup
-- [ ] Ports
-- [ ] Testing commands
-- [ ] Documentation links
+- [x] Project overview
+- [x] Features
+- [x] Tech stack
+- [x] Prerequisites
+- [x] Exact startup commands
+- [x] Environment setup
+- [x] Ports
+- [x] Testing commands
+- [x] Documentation links
 
 ---
 
@@ -1512,15 +1512,15 @@ fix(docker): ensure clean one-command startup
 
 ### Checklist
 
-- [ ] Frontend architecture
-- [ ] Backend architecture
-- [ ] Authentication flow
-- [ ] Database interaction
-- [ ] API structure
-- [ ] Docker architecture
-- [ ] Error handling
-- [ ] Security assumptions
-- [ ] Timezone strategy
+- [x] Frontend architecture
+- [x] Backend architecture
+- [x] Authentication flow
+- [x] Database interaction
+- [x] API structure
+- [x] Docker architecture
+- [x] Error handling
+- [x] Security assumptions
+- [x] Timezone strategy
 
 ---
 
@@ -1528,14 +1528,14 @@ fix(docker): ensure clean one-command startup
 
 ### Checklist
 
-- [ ] Entities
-- [ ] ERD
-- [ ] Relationships
-- [ ] Constraints
-- [ ] Indexes
-- [ ] Cascade rules
-- [ ] Prisma model
-- [ ] Source-of-truth decisions
+- [x] Entities
+- [x] ERD
+- [x] Relationships
+- [x] Constraints
+- [x] Indexes
+- [x] Cascade rules
+- [x] Prisma model
+- [x] Source-of-truth decisions
 
 ---
 
@@ -1543,13 +1543,13 @@ fix(docker): ensure clean one-command startup
 
 ### Checklist
 
-- [ ] Endpoints
-- [ ] Request shapes
-- [ ] Response shapes
-- [ ] Error format
-- [ ] Authorization rules
-- [ ] Status codes
-- [ ] Date contract
+- [x] Endpoints
+- [x] Request shapes
+- [x] Response shapes
+- [x] Error format
+- [x] Authorization rules
+- [x] Status codes
+- [x] Date contract
 
 ### Suggested Commit
 

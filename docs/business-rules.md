@@ -207,7 +207,7 @@ This prevents the dashboard from breaking a streak simply because the user has n
 
 ## 8. Future-Date Rule
 
-The initial scope does not allow tracking records for future dates or for
+The API does not allow tracking records for future dates or for
 dates before the habit existed.
 
 ```text
@@ -215,7 +215,7 @@ record_date >= habit_creation_date
 record_date <= current application date
 ```
 
-Historical corrections may be allowed for past dates.
+Historical corrections are allowed for past dates inside this valid window.
 
 ---
 
@@ -387,10 +387,7 @@ If a weekly break-habit metric is added later, it must be documented separately.
 
 ## 12. Historical Editing
 
-Historical editing is a P1 enhancement.
-
-If the P1 historical-editing feature is implemented, a past record may be
-corrected only within the habit's valid tracking window:
+A past record may be corrected only within the habit's valid tracking window:
 
 ```text
 record_date >= habit_creation_date
